@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Boutique en Ligne</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="#canva-pro" class="nav-link">Canva Pro</a></li>
+                <li><a href="#articles" class="nav-link">Nos Articles</a></li>
+                <li><a href="#avis" class="nav-link">Avis Clients</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
+            </ul>
+            <!-- Barre de recherche -->
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Rechercher...">
+                <button id="search-button">🔍</button>
+                <div id="search-results"></div> <!-- Conteneur pour les résultats -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- SECTION ACCUEIL -->
+    <section id="accueil" class="home-banner">
+        <h1>Bienvenue dans notre Boutique en Ligne</h1>
+        <p>Découvrez des articles exclusifs et profitez de nos offres incroyables !</p>
+        <a href="#canva-pro" class="cta-btn">Voir Canva Pro</a>
+    </section>
+
+    <!-- SECTION CANVA PRO -->
+    <section id="canva-pro">
+        <div class="canva-block">
+            <h2>Profitez de Canva Pro</h2>
+            <div class="canva-logo">
+                <img src="Canva-logo.png" alt="Canva Logo" style="width:150px; margin-top: 20px;">
+            </div>
+            <p>Accédez à Canva Pro pendant 2 ans pour seulement <strong>17€</strong> !</p>
+            <p>Tout ce qui est inclus dans la version Pro :</p>
+            <ul class="benefits-list">
+                <li><strong>Modèles premium illimités</strong></li>
+                <li><strong>Plus de 100 millions de photos, vidéos, graphiques, audio</strong></li>
+                <li><strong>1000 Kits de marque pour gérer votre marque</strong></li>
+                <li><strong>Redimensionnez et traduisez rapidement les designs</strong></li>
+                <li><strong>Supprimez les arrière-plans en un clic</strong></li>
+                <li><strong>Boostez la créativité avec plus de 20 outils d'IA</strong></li>
+                <li><strong>Planifiez et programmez le contenu des réseaux sociaux</strong></li>
+                <li><strong>1 To de stockage cloud</strong></li>
+                <li><strong>Assistance client en ligne</strong></li>
+            </ul>
+
+            <!-- Bouton PayPal pour acheter Canva Pro -->
+            <form action="https://www.paypal.com/instantcommerce/checkout/undefined" method="post" target="_blank" class="paypal-btn">
+                <input class="pp-B5JXRGFYCRD6G" type="submit" value="Profitez de Canva Pro maintenant" />
+                <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+                <section>Optimisé par <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;" /></section>
+            </form>
+        </div>
+    </section>
+
+    <!-- Logo Canva et capture d'écran -->
+    <div class="canva-video">
+        <video width="100%" controls muted loop playsinline>
+            <source src="canva-video.mp4" type="video/mp4">
+            Votre navigateur ne prend pas en charge la vidéo.
+        </video>
+    </div>
+
+    <!-- SECTION NOS ARTICLES -->
+    <section id="articles">
+        <h2>Nos Articles Populaires</h2>
+        <div class="articles-list">
+            <!-- Article 1 : Canva Pro -->
+            <div class="article">
+                <img src="canva.jpg" alt="Canva Pro">
+                <h3>Canva Pro</h3>
+                <p>Accédez à toutes les fonctionnalités premium pour 10.000F CFA / 2ans.</p>
+                <a href="https://www.paypal.com/ncp/payment/PH3GDQ9STZWUY" class="buy-btn">Acheter</a>
+            </div>
+
+            <!-- Article 2 : Abonnement YGG TORRENT -->
+            <div class="article">
+                <img src="ygg-torrent.png" alt="Spotify Premium">
+                <h3>YGG Torrent</h3>
+                <p>Crée votre compte YGG torrent pour 6€ et téléchargez des jeux; films; series; des formations et biens d'autres.</p>
+                <a href="https://cbl.link/rYZS69E" class="buy-btn">Acheter</a>
+            </div>
+
+            <!-- Article 3 : COMPT IPTV -->
+            <div class="article">
+                <img src="iptv.png" alt="Nintendo Switch">
+                <h3>Compte IPTV</h3>
+                <p>Accédez à des milliers de chaînes du monde entier, des films, des séries et beaucoup plus.</p>
+                <a href="https://cbl.link/rYZS69E" class="buy-btn">Acheter</a>
+            </div>
+
+            <!-- Article 4 : Page facebook -->
+            <div class="article">
+                <img src="facebook.png" alt="Casque Bluetooth Bose">
+                <h3>Boostez votre page facebook</h3>
+                <p>Création de campagnes publicitaires adaptées aux objectifs recherchés.</p>
+                <a href="https://cbl.link/rYZS69E" class="buy-btn">Acheter</a>
+            </div>
+
+            <!-- Article 5 : Apple Watch Série 8 -->
+            <div class="article">
+                <img src="https://via.placeholder.com/250x150" alt="Apple Watch Série 8">
+                <h3>Apple Watch Série 8</h3>
+                <p>Suivez vos performances et soyez connecté en permanence.</p>
+                <a href="https://cbl.link/rYZS69E" class="buy-btn">Acheter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION AVIS CLIENTS -->
+    <section id="avis">
+        <h2>Avis Clients</h2>
+        <div class="avis-container">
+            <div class="avis">
+                <p>J'étais novice en design, mais Canva Pro m'a permis de créer des visuels professionnels en un clin d'œil. Je recommande vivement !</p>
+                <p><strong> Marie SAWADOGO.</strong></p>
+            </div>
+            <div class="avis">
+                <p>J'ai trouvé des raretés introuvables ailleurs sur YGG. La qualité des fichiers est excellente, et le site est très bien organisé.</p>
+                <p><strong>Jean ILBOUDO.</strong></p>
+            </div>
+            <div class="avis">
+                <p>J'ai été bluffé par le nombre de chaînes disponibles avec mon abonnement IPTV. Je peux regarder des chaînes du monde entier, et la qualité de l'image est parfaite.</p>
+                <p><strong>Nadia Kambou.</strong></p>
+            </div>
+            <div class="avis">
+                <p>La publicité sur Facebook m'a permis de toucher un public beaucoup plus large que je n'aurais jamais pu atteindre avec les méthodes traditionnelles. C'est un excellent moyen de développer sa notoriété.</p>
+                <p><strong>David M., community manager.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CONTACT -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Pour toute demande, rejoins-nous sur WhatsApp !</p>
+        <a href="https://cbl.link/rYZS69E" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp" style="width: 50px; height: 50px;">
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Ma Boutique. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

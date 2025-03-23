@@ -52,15 +52,22 @@ document.getElementById('search-input').addEventListener('keypress', function (e
     }
 });
 
-// Animation de défilement fluide (Smooth Scroll)
+// Animation de défilement fluide (Smooth Scroll) pour les liens du menu
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+        e.preventDefault(); // Empêcher le comportement par défaut du lien
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-        });
+        // Récupérer la cible du lien (l'ID de la section)
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+
+        // Défilement fluide vers la section cible
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: 'smooth', // Effet de défilement fluide
+                block: 'start',     // Aligner le haut de la section avec le haut de la fenêtre
+            });
+        }
     });
 });
 

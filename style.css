@@ -91,7 +91,7 @@ nav ul li a:hover {
     max-height: 200px;
     overflow-y: auto;
     display: none; /* Masqué par défaut */
-    z-index: 10; /* S'assurer que les résultats sont au-dessus des autres éléments */
+    z-index: 9999; /* Assurer que les résultats sont au-dessus */
 }
 
 #search-results div {

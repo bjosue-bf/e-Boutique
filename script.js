@@ -189,29 +189,33 @@ window.addEventListener('load', () => {
 
 // Fonction pour afficher ou masquer les produits d'un catalogue
 function toggleProducts(catalogueId) {
-    // Cacher tous les catalogues de produits avec une animation de sortie
+    // Cacher tous les catalogues de produits
     var allCatalogues = document.querySelectorAll('.catalogue-products');
     allCatalogues.forEach(function(catalogue) {
-        catalogue.classList.add('fadeOut'); // Ajoute la classe pour l'animation de sortie
-        catalogue.style.display = 'none';  // Cache les produits après l'animation
+        catalogue.classList.add('fadeOut'); // Ajoute la classe fadeOut
+        setTimeout(function() {
+            catalogue.style.display = 'none'; // Cache après l'animation
+            catalogue.classList.remove('fadeOut'); // Supprime la classe fadeOut
+        }, 500); // Attends la fin de l'animation (500ms)
     });
 
-    // Afficher le catalogue sélectionné avec une animation d'entrée
+    // Afficher le catalogue sélectionné
     var currentCatalogue = document.getElementById(catalogueId);
     if (currentCatalogue) {
         currentCatalogue.style.display = 'flex'; // Affiche le catalogue
-        setTimeout(function() { // Attendre que l'élément soit visible avant d'ajouter l'animation
+        setTimeout(function() {
             currentCatalogue.classList.remove('fadeOut');
-            currentCatalogue.classList.add('fadeIn'); // Ajoute la classe pour l'animation d'entrée
-        }, 10); // Petit délai pour laisser le temps au navigateur de redessiner l'élément
+            currentCatalogue.classList.add('fadeIn'); // Ajoute fadeIn pour animation d'entrée
+        }, 10); // Délai pour que l'élément devienne visible
     }
 }
 
-// Ajout d'écouteurs d'événements pour les catalogues
+// Ajouter un événement sur chaque en-tête de catalogue
 document.querySelectorAll('.catalogue-header').forEach(function(header) {
     header.addEventListener('click', function() {
         var catalogueId = header.nextElementSibling.id; // Récupère l'ID du catalogue
-        toggleProducts(catalogueId); // Appel de la fonction avec l'ID du catalogue
+        toggleProducts(catalogueId); // Appel de la fonction pour afficher/masquer les produits
     });
 });
+
 

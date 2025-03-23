@@ -137,3 +137,21 @@ buyButtons.forEach(button => {
         button.style.transform = 'scale(1)';
     });
 });
+
+// Fonction pour démarrer la vidéo lorsque l'utilisateur arrive sur la section
+function playVideoOnScroll() {
+    const video = document.getElementById('canva-video'); // Sélectionner l'élément vidéo
+    const videoSection = document.querySelector('.canva-video'); // Section contenant la vidéo
+
+    // Vérifier si la vidéo est visible dans la fenêtre
+    const rect = videoSection.getBoundingClientRect();
+    const isVisible = rect.top >= 0 && rect.top <= window.innerHeight;
+
+    // Si la section vidéo est visible et que la vidéo est en pause, démarrer la lecture
+    if (isVisible && video.paused) {
+        video.play(); // Démarre la lecture
+    }
+}
+
+// Ajouter un écouteur d'événements pour le scroll
+window.addEventListener('scroll', playVideoOnScroll);

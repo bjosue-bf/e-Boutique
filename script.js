@@ -185,3 +185,17 @@ window.addEventListener('load', () => {
         });
     }
 });
+
+
+// Fonction pour afficher ou masquer les produits d'un catalogue
+function toggleProducts(catalogueId) {
+    var allCatalogues = document.querySelectorAll('.catalogue-products');
+    allCatalogues.forEach(function(catalogue) {
+        catalogue.style.display = 'none'; // Cacher tous les catalogues
+    });
+
+    var currentCatalogue = document.getElementById(catalogueId);
+    if (currentCatalogue) {
+        currentCatalogue.style.display = 'flex'; // Afficher le catalogue sélectionné
+    }
+}

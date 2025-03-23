@@ -18,6 +18,7 @@ header {
     background-color: #3a05e7;
     padding: 15px 0;
     text-align: center;
+    position: relative; /* Ajouté pour positionner le menu correctement */
 }
 
 .menu-container {
@@ -48,44 +49,55 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
     background-color: #3a05e7;
     border-radius: 10px;
-    width: 200px;
     padding: 10px 0;
-    opacity: 0;
-    transform: translateY(-20px);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    display: none; /* Caché par défaut */
 }
 
-#menu-list.show {
-    display: flex; /* Afficher le menu */
-    opacity: 1;
-    transform: translateY(0);
+/* Styles pour le menu sur ordinateur */
+@media (min-width: 769px) {
+    #menu-list {
+        display: flex !important; /* Toujours afficher le menu sur ordinateur */
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
+        width: auto;
+    }
+
+    .hamburger {
+        display: none; /* Cacher le bouton hamburger sur ordinateur */
+    }
+
+    nav ul li {
+        display: inline;
+        margin: 0 20px;
+    }
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
+/* Styles pour le menu sur mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Afficher le bouton hamburger sur mobile */
+    }
 
-nav ul li {
-    margin: 10px 0;
-}
+    #menu-list {
+        display: none; /* Cacher le menu par défaut sur mobile */
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: calc(100% - 40px); /* Ajuster la largeur pour ne pas dépasser de l'écran */
+        max-width: 300px; /* Limiter la largeur maximale */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
+    #menu-list.show {
+        display: flex; /* Afficher le menu lorsqu'il a la classe 'show' */
+    }
 
-nav ul li a:hover {
-    color: #e9c46a;
-    transform: translateY(-3px);
+    nav ul li {
+        margin: 10px 0;
+    }
 }
 
 /* Styles pour la barre de recherche */

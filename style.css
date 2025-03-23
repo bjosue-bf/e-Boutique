@@ -860,3 +860,95 @@ footer {
         position: relative; /* Assurer que le menu se place correctement */
     }
 }
+
+
+/* Ajoute ce CSS à la fin de ton fichier style.css */
+
+/* Container pour les catalogues */
+.catalogues-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+/* Chaque catalogue */
+.catalogue {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.catalogue:hover {
+    background-color: #dcdcdc;
+}
+
+/* Container pour les produits dans chaque catalogue */
+.catalogue-products {
+    display: none; /* Cacher les produits par défaut */
+    margin-top: 20px;
+    display: flex;
+    overflow-x: auto; /* Permettre le défilement horizontal */
+    gap: 15px;
+    padding: 10px 0;
+}
+
+/* Chaque produit */
+.product {
+    background-color: #fff;
+    padding: 15px;
+    width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product h4 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product p {
+    font-size: 14px;
+    color: #555;
+}
+
+.product .buy-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.product .buy-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Animation de défilement horizontal */
+.catalogue-products::-webkit-scrollbar {
+    height: 8px;
+}
+
+.catalogue-products::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.catalogue-products::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}

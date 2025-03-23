@@ -73,6 +73,11 @@ header {
         display: inline;
         margin: 0 20px;
     }
+
+    /* Couleur des liens du menu sur PC */
+    nav ul li a {
+        color: white; /* Texte en blanc */
+    }
 }
 
 /* Styles pour le menu sur mobile */
@@ -97,6 +102,11 @@ header {
 
     nav ul li {
         margin: 10px 0;
+    }
+
+    /* Couleur des liens du menu sur mobile */
+    nav ul li a {
+        color: white; /* Texte en blanc */
     }
 }
 

@@ -33,12 +33,6 @@ document.getElementById('search-input').addEventListener('keypress', function (e
     }
 });
 
-// Réinitialiser la liste des articles lors du rechargement de la page
-window.addEventListener('load', function () {
-    const originalArticlesList = document.querySelector('.articles-list').cloneNode(true);
-    document.getElementById('articles').appendChild(originalArticlesList);
-});
-
 // Animation de défilement fluide (Smooth Scroll)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -125,8 +119,7 @@ navLinks.forEach(link => {
     link.addEventListener('mouseout', () => {
         link.style.color = 'white';
         link.style.transform = 'translateY(0)';
-    }
-    );
+    });
 });
 
 // Animation de survol pour les boutons d'achat

@@ -1,27 +1,9 @@
-// Récupère les éléments HTML
-const hamburgerMenu = document.getElementById("hamburger-menu");
-const menuList = document.getElementById("menu-list");
-
-// Ajoute un événement au bouton hamburger
-hamburgerMenu.addEventListener("click", () => {
-    menuList.classList.toggle("show"); // Ajoute ou retire la classe 'show'
-});
-
-// Fermer le menu lors du clic sur un lien
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menuList.classList.remove('show');
-    });
-});
-
 // Fonction de recherche
 function searchSite() {
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
     const articles = document.querySelectorAll('.article'); // Cibler uniquement les articles
     let found = false;
 
-    // On parcourt chaque article pour vérifier s'il contient le terme de recherche
     articles.forEach(article => {
         const articleContent = article.textContent.toLowerCase();
         if (articleContent.includes(searchTerm)) {
@@ -32,7 +14,6 @@ function searchSite() {
         }
     });
 
-    // Si aucun résultat n'est trouvé, on affiche un message
     if (!found) {
         alert("Aucun résultat trouvé pour : " + searchTerm);
     } else {
@@ -50,6 +31,12 @@ document.getElementById('search-input').addEventListener('keypress', function (e
     if (e.key === 'Enter') {
         searchSite();
     }
+});
+
+// Réinitialiser la liste des articles lors du rechargement de la page
+window.addEventListener('load', function () {
+    const originalArticlesList = document.querySelector('.articles-list').cloneNode(true);
+    document.getElementById('articles').appendChild(originalArticlesList);
 });
 
 // Animation de défilement fluide (Smooth Scroll)
@@ -138,7 +125,8 @@ navLinks.forEach(link => {
     link.addEventListener('mouseout', () => {
         link.style.color = 'white';
         link.style.transform = 'translateY(0)';
-    });
+    }
+    );
 });
 
 // Animation de survol pour les boutons d'achat
@@ -154,23 +142,3 @@ buyButtons.forEach(button => {
         button.style.transform = 'scale(1)';
     });
 });
-
-// Fonction pour démarrer la vidéo lorsque l'utilisateur arrive sur la section
-function playVideoOnScroll() {
-    const video = document.getElementById('canva-video'); // Sélectionner l'élément vidéo
-    const videoSection = document.querySelector('.canva-video'); // Section contenant la vidéo
-
-    // Vérifier si la vidéo est visible dans la fenêtre
-    const rect = videoSection.getBoundingClientRect();
-    const isVisible = rect.top >= 0 && rect.top <= window.innerHeight;
-
-    // Si la section vidéo est visible et que la vidéo est en pause, démarrer la lecture
-    if (isVisible && video.paused) {
-        video.play().catch((error) => {
-            console.error("Erreur de lecture de la vidéo :", error);
-        });
-    }
-}
-
-// Ajouter un écouteur d'événements pour le scroll
-window.addEventListener('scroll', playVideoOnScroll);

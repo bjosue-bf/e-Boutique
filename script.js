@@ -4,6 +4,7 @@ function searchSite() {
     const articles = document.querySelectorAll('.article'); // Cibler uniquement les articles
     let found = false;
 
+    // On parcourt chaque article pour vérifier s'il contient le terme de recherche
     articles.forEach(article => {
         const articleContent = article.textContent.toLowerCase();
         if (articleContent.includes(searchTerm)) {
@@ -14,6 +15,7 @@ function searchSite() {
         }
     });
 
+    // Si aucun résultat n'est trouvé, on affiche un message
     if (!found) {
         alert("Aucun résultat trouvé pour : " + searchTerm);
     } else {

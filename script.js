@@ -189,15 +189,29 @@ window.addEventListener('load', () => {
 
 // Fonction pour afficher ou masquer les produits d'un catalogue
 function toggleProducts(catalogueId) {
-    // Cacher tous les catalogues de produits
+    // Cacher tous les catalogues de produits avec une animation de sortie
     var allCatalogues = document.querySelectorAll('.catalogue-products');
     allCatalogues.forEach(function(catalogue) {
-        catalogue.style.display = 'none';
+        catalogue.classList.add('fadeOut'); // Ajoute la classe pour l'animation de sortie
+        catalogue.style.display = 'none';  // Cache les produits après l'animation
     });
 
-    // Afficher le catalogue sélectionné
+    // Afficher le catalogue sélectionné avec une animation d'entrée
     var currentCatalogue = document.getElementById(catalogueId);
     if (currentCatalogue) {
-        currentCatalogue.style.display = 'flex';
+        currentCatalogue.style.display = 'flex'; // Affiche le catalogue
+        setTimeout(function() { // Attendre que l'élément soit visible avant d'ajouter l'animation
+            currentCatalogue.classList.remove('fadeOut');
+            currentCatalogue.classList.add('fadeIn'); // Ajoute la classe pour l'animation d'entrée
+        }, 10); // Petit délai pour laisser le temps au navigateur de redessiner l'élément
     }
 }
+
+// Ajout d'écouteurs d'événements pour les catalogues
+document.querySelectorAll('.catalogue-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+        var catalogueId = header.nextElementSibling.id; // Récupère l'ID du catalogue
+        toggleProducts(catalogueId); // Appel de la fonction avec l'ID du catalogue
+    });
+});
+

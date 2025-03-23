@@ -149,9 +149,12 @@ function playVideoOnScroll() {
 
     // Si la section vidéo est visible et que la vidéo est en pause, démarrer la lecture
     if (isVisible && video.paused) {
-        video.play(); // Démarre la lecture
+        video.play().catch((error) => {
+            console.error("Erreur de lecture de la vidéo :", error);
+        });
     }
 }
 
 // Ajouter un écouteur d'événements pour le scroll
 window.addEventListener('scroll', playVideoOnScroll);
+

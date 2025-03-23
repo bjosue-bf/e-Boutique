@@ -872,24 +872,29 @@ footer {
 
 .catalogues-container {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
     gap: 20px;
-    overflow-x: auto;
+    justify-content: center;
 }
 
 .catalogue {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 250px;
+    width: 300px;
     text-align: center;
     padding: 20px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .catalogue:hover {
     transform: scale(1.05);
+}
+
+.catalogue-header {
+    position: relative;
 }
 
 .catalogue-cover {
@@ -901,58 +906,66 @@ footer {
 
 .catalogue h3 {
     margin-top: 15px;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 1.5rem;
+    color: #333;
 }
 
 .catalogue p {
-    color: #555;
-    font-size: 14px;
+    font-size: 1rem;
+    color: #666;
+    margin-top: 10px;
 }
 
 .catalogue-products {
     display: none;
-    margin-top: 20px;
-    display: flex;
+    flex-direction: column;
     gap: 20px;
-    overflow-x: auto;
+    margin-top: 20px;
 }
 
 .product {
-    background-color: #fff;
-    width: 200px;
-    padding: 15px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .product img {
     width: 100%;
+    max-width: 250px;
     height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 .product h4 {
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 .product p {
-    font-size: 14px;
+    font-size: 1rem;
     color: #555;
 }
 
-.product .buy-btn {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
+.buy-btn {
+    background-color: #4CAF50;
+    color: white;
     padding: 10px 20px;
-    border-radius: 5px;
     text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
     margin-top: 10px;
 }
+
+.buy-btn:hover {
+    background-color: #45a049;
+}
+
+/* Active la visibilité des produits du catalogue */
+.catalogue.active .catalogue-products {
+    display: flex;
+}
+
 
 .product .buy-btn:hover {
     background-color: #0056b3;

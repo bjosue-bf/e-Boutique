@@ -7,6 +7,13 @@ hamburgerMenu.addEventListener("click", () => {
     menuList.classList.toggle("show"); // Ajoute ou retire la classe 'show'
 });
 
+// Fermer le menu lors du clic sur un lien
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        menuList.classList.remove('show');
+    });
+});
 
 // Fonction de recherche
 function searchSite() {
@@ -167,4 +174,3 @@ function playVideoOnScroll() {
 
 // Ajouter un écouteur d'événements pour le scroll
 window.addEventListener('scroll', playVideoOnScroll);
-

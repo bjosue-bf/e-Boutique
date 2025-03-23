@@ -3,9 +3,11 @@ const hamburgerMenu = document.getElementById("hamburger-menu");
 const menuList = document.getElementById("menu-list");
 
 // Ajoute un événement au bouton hamburger
-hamburgerMenu.addEventListener("click", () => {
-    menuList.classList.toggle("show"); // Ajoute ou retire la classe 'show'
-});
+if (hamburgerMenu) {
+    hamburgerMenu.addEventListener("click", () => {
+        menuList.classList.toggle("show"); // Ajoute ou retire la classe 'show'
+    });
+}
 
 // Fermer le menu lors du clic sur un lien
 const navLinks = document.querySelectorAll('.nav-link');
@@ -38,19 +40,27 @@ function searchSite() {
     } else {
         // Défilement fluide vers la section des articles
         const articlesSection = document.getElementById('articles');
-        articlesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (articlesSection) {
+            articlesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     }
 }
 
 // Ajouter un écouteur d'événement au bouton de recherche
-document.getElementById('search-button').addEventListener('click', searchSite);
+const searchButton = document.getElementById('search-button');
+if (searchButton) {
+    searchButton.addEventListener('click', searchSite);
+}
 
 // Ajouter un écouteur d'événement pour la touche "Entrée"
-document.getElementById('search-input').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        searchSite();
-    }
-});
+const searchInput = document.getElementById('search-input');
+if (searchInput) {
+    searchInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            searchSite();
+        }
+    });
+}
 
 // Animation de défilement fluide (Smooth Scroll) pour les liens du menu
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -83,6 +93,16 @@ window.addEventListener('scroll', function () {
             section.classList.add('visible');
         }
     });
+
+    // Gestion du bouton retour en haut
+    const scrollToTopBtn = document.querySelector('.scroll-to-top');
+    if (scrollToTopBtn) {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.style.display = 'block';
+        } else {
+            scrollToTopBtn.style.display = 'none';
+        }
+    }
 });
 
 // Effet de zoom sur les images des articles au survol
@@ -126,42 +146,6 @@ scrollToTopBtn.addEventListener('click', () => {
     });
 });
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        scrollToTopBtn.style.display = 'block';
-    } else {
-        scrollToTopBtn.style.display = 'none';
-    }
-});
-
-// Animation de survol pour les liens de navigation
-const navLinks = document.querySelectorAll('nav ul li a');
-navLinks.forEach(link => {
-    link.addEventListener('mouseover', () => {
-        link.style.color = '#e9c46a';
-        link.style.transform = 'translateY(-3px)';
-    });
-
-    link.addEventListener('mouseout', () => {
-        link.style.color = 'white';
-        link.style.transform = 'translateY(0)';
-    });
-});
-
-// Animation de survol pour les boutons d'achat
-const buyButtons = document.querySelectorAll('.buy-btn');
-buyButtons.forEach(button => {
-    button.addEventListener('mouseover', () => {
-        button.style.backgroundColor = '#e9c46a';
-        button.style.transform = 'scale(1.1)';
-    });
-
-    button.addEventListener('mouseout', () => {
-        button.style.backgroundColor = '#2a9d8f';
-        button.style.transform = 'scale(1)';
-    });
-});
-
 // Fonction pour démarrer la vidéo lorsque l'utilisateur arrive sur la section
 function playVideoOnScroll() {
     const video = document.getElementById('canva-video'); // Sélectionner l'élément vidéo
@@ -181,3 +165,23 @@ function playVideoOnScroll() {
 
 // Ajouter un écouteur d'événements pour le scroll
 window.addEventListener('scroll', playVideoOnScroll);
+
+// Code supplémentaire pour garantir le bon fonctionnement du menu hamburger et du bouton retour en haut
+window.addEventListener('load', () => {
+    // Vérification pour s'assurer que le bouton de retour en haut est bien visible
+    const scrollToTopBtn = document.querySelector('.scroll-to-top');
+    if (scrollToTopBtn) {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.style.display = 'block';
+        }
+    }
+
+    // S'assurer que le menu hamburger fonctionne bien
+    const hamburgerMenu = document.getElementById("hamburger-menu");
+    const menuList = document.getElementById("menu-list");
+    if (hamburgerMenu && menuList) {
+        hamburgerMenu.addEventListener("click", () => {
+            menuList.classList.toggle("show");
+        });
+    }
+});

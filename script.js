@@ -193,18 +193,21 @@ function toggleProducts(catalogueId) {
     var allCatalogues = document.querySelectorAll('.catalogue-products');
     allCatalogues.forEach(function(catalogue) {
         catalogue.classList.add('fadeOut'); // Ajoute la classe fadeOut
+        // Modifier la visibilité et l'opacité au lieu de display
         setTimeout(function() {
-            catalogue.style.display = 'none'; // Cache après l'animation
+            catalogue.style.visibility = 'hidden'; // Cache le catalogue
+            catalogue.style.opacity = '0'; // Fait disparaître l'élément
             catalogue.classList.remove('fadeOut'); // Supprime la classe fadeOut
-        }, 500); // Attends la fin de l'animation (500ms)
+        }, 500); // Attendre la fin de l'animation (500ms)
     });
 
     // Afficher le catalogue sélectionné
     var currentCatalogue = document.getElementById(catalogueId);
     if (currentCatalogue) {
-        currentCatalogue.style.display = 'flex'; // Affiche le catalogue
+        currentCatalogue.style.visibility = 'visible'; // Rendre le catalogue visible
+        currentCatalogue.style.opacity = '0'; // Initialement invisible
         setTimeout(function() {
-            currentCatalogue.classList.remove('fadeOut');
+            currentCatalogue.style.opacity = '1'; // Fait apparaître le catalogue
             currentCatalogue.classList.add('fadeIn'); // Ajoute fadeIn pour animation d'entrée
         }, 10); // Délai pour que l'élément devienne visible
     }
@@ -217,5 +220,6 @@ document.querySelectorAll('.catalogue-header').forEach(function(header) {
         toggleProducts(catalogueId); // Appel de la fonction pour afficher/masquer les produits
     });
 });
+
 
 

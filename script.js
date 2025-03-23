@@ -1,10 +1,10 @@
-// Sélectionner le bouton hamburger et la liste de menu
-const hamburgerMenu = document.getElementById('hamburger-menu');
-const menuList = document.getElementById('menu-list');
+// Récupère les éléments HTML
+const hamburgerMenu = document.getElementById("hamburger-menu");
+const menuList = document.getElementById("menu-list");
 
-// Ajouter un événement au clic sur le bouton hamburger
-hamburgerMenu.addEventListener('click', () => {
-    menuList.classList.toggle('show'); // Afficher ou cacher le menu
+// Ajoute un événement au bouton hamburger
+hamburgerMenu.addEventListener("click", () => {
+    menuList.classList.toggle("show"); // Ajoute ou retire la classe 'show'
 });
 
 

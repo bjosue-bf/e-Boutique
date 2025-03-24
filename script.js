@@ -216,40 +216,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function toggleProducts(catalogueId) {
-    console.log("Catalogue cliqué:", catalogueId);
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.querySelector(".products-container");
+    const leftBtn = document.querySelector(".scroll-left");
+    const rightBtn = document.querySelector(".scroll-right");
 
-    var catalogue = document.getElementById(catalogueId);
-    var productsContainer = catalogue.querySelector(".catalogue-products");
+    leftBtn.addEventListener("click", () => {
+        container.scrollBy({ left: -300, behavior: "smooth" });
+    });
 
-    if (!productsContainer) {
-        console.log("Aucun produit trouvé dans ce catalogue.");
-        return;
-    }
+    rightBtn.addEventListener("click", () => {
+        container.scrollBy({ left: 300, behavior: "smooth" });
+    });
+});
 
-    if (catalogue.classList.contains("active")) {
-        productsContainer.style.opacity = "0";
-        setTimeout(() => {
-            productsContainer.style.display = "none";
-        }, 300);
-        catalogue.classList.remove("active");
-    } else {
-        document.querySelectorAll(".catalogue").forEach(cat => {
-            var prod = cat.querySelector(".catalogue-products");
-            if (prod) {
-                prod.style.display = "none";
-                prod.style.opacity = "0";
-                cat.classList.remove("active");
-            }
-        });
-
-        productsContainer.style.display = "flex";
-        setTimeout(() => {
-            productsContainer.style.opacity = "1";
-        }, 50);
-        catalogue.classList.add("active");
-    }
-}
 
 
 

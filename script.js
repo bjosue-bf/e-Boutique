@@ -189,37 +189,34 @@ window.addEventListener('load', () => {
 
 // Fonction pour afficher ou masquer les produits d'un catalogue
 function toggleProducts(catalogueId) {
-    // Cacher tous les catalogues de produits
-    var allCatalogues = document.querySelectorAll('.catalogue-products');
-    allCatalogues.forEach(function(catalogue) {
-        catalogue.classList.add('fadeOut'); // Ajoute la classe fadeOut
-        // Modifier la visibilité et l'opacité au lieu de display
-        setTimeout(function() {
-            catalogue.style.visibility = 'hidden'; // Cache le catalogue
-            catalogue.style.opacity = '0'; // Fait disparaître l'élément
-            catalogue.classList.remove('fadeOut'); // Supprime la classe fadeOut
-        }, 500); // Attendre la fin de l'animation (500ms)
+    var catalogue = document.getElementById(catalogueId);
+
+    // Sélectionne les produits du catalogue cliqué
+    var productsContainer = catalogue.querySelector('.catalogue-products');
+
+    // Vérifie si ce catalogue est déjà actif
+    var isActive = catalogue.classList.contains('active');
+
+    // Fermer tous les autres catalogues
+    document.querySelectorAll('.catalogue').forEach(function (cat) {
+        cat.classList.remove('active'); // Supprime la classe active
+        cat.querySelector('.catalogue-products').style.visibility = 'hidden';
+        cat.querySelector('.catalogue-products').style.opacity = '0';
     });
 
-    // Afficher le catalogue sélectionné
-    var currentCatalogue = document.getElementById(catalogueId);
-    if (currentCatalogue) {
-        currentCatalogue.style.visibility = 'visible'; // Rendre le catalogue visible
-        currentCatalogue.style.opacity = '0'; // Initialement invisible
-        setTimeout(function() {
-            currentCatalogue.style.opacity = '1'; // Fait apparaître le catalogue
-            currentCatalogue.classList.add('fadeIn'); // Ajoute fadeIn pour animation d'entrée
-        }, 10); // Délai pour que l'élément devienne visible
+    // Si le catalogue n'était pas actif, on l'ouvre
+    if (!isActive) {
+        catalogue.classList.add('active'); // Ajoute la classe active
+        productsContainer.style.visibility = 'visible';
+        productsContainer.style.opacity = '1';
     }
 }
 
-// Ajouter un événement sur chaque en-tête de catalogue
-document.querySelectorAll('.catalogue-header').forEach(function(header) {
-    header.addEventListener('click', function() {
-        var catalogueId = header.nextElementSibling.id; // Récupère l'ID du catalogue
-        toggleProducts(catalogueId); // Appel de la fonction pour afficher/masquer les produits
+// Ajout des événements de clic sur chaque catalogue
+document.querySelectorAll('.catalogue').forEach(function (catalogue) {
+    catalogue.addEventListener('click', function () {
+        toggleProducts(catalogue.id);
     });
 });
-
 
 

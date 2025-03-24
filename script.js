@@ -231,6 +231,53 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const aboutSection = document.querySelector(".about-section");
+    const stats = document.querySelectorAll(".stat");
+    const images = document.querySelectorAll(".customer-img");
+
+    // Détection du scroll pour activer l'animation de la section
+    function handleScroll() {
+        const sectionPos = aboutSection.getBoundingClientRect().top;
+        const screenPos = window.innerHeight / 1.3; // Ajuste le déclenchement
+
+        if (sectionPos < screenPos) {
+            aboutSection.classList.add("show");
+        }
+    }
+
+    // Animation des statistiques avec effet de rebond
+    function animateStats() {
+        stats.forEach((stat, index) => {
+            setTimeout(() => {
+                stat.classList.add("bounce");
+            }, index * 200); // Décalage progressif des animations
+        });
+    }
+
+    // Animation des images avec effet de flottement
+    function floatImages() {
+        images.forEach((img, index) => {
+            setTimeout(() => {
+                img.classList.add("float");
+            }, index * 300);
+        });
+    }
+
+    // Lancement des animations au scroll
+    window.addEventListener("scroll", function() {
+        handleScroll();
+        if (aboutSection.classList.contains("show")) {
+            animateStats();
+            floatImages();
+        }
+    });
+
+    // Pour activer immédiatement si déjà visible au chargement
+    handleScroll();
+});
+</script>
 
 
 

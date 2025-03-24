@@ -189,18 +189,34 @@ window.addEventListener('load', () => {
 
 // Fonction pour afficher/masquer les produits d'un catalogue
 function toggleProducts(catalogueId) {
+    console.log("Catalogue cliqué:", catalogueId);
+
     var allCatalogues = document.querySelectorAll('.catalogue');
-    
+
     allCatalogues.forEach(function (catalogue) {
+        const products = catalogue.querySelector(".catalogue-products");
+
         if (catalogue.id === catalogueId) {
             // Vérifier si le catalogue est déjà actif
             if (catalogue.classList.contains('active')) {
                 catalogue.classList.remove('active'); // Masquer les produits
+                if (products) {
+                    products.style.maxHeight = "0px";
+                    setTimeout(() => { products.style.display = "none"; }, 300); // Cache après l’animation
+                }
             } else {
                 catalogue.classList.add('active'); // Afficher les produits
+                if (products) {
+                    products.style.display = "block";
+                    products.style.maxHeight = products.scrollHeight + "px";
+                }
             }
         } else {
             catalogue.classList.remove('active'); // Masquer les autres catalogues
+            if (products) {
+                products.style.maxHeight = "0px";
+                setTimeout(() => { products.style.display = "none"; }, 300);
+            }
         }
     });
 }
@@ -211,19 +227,6 @@ document.querySelectorAll('.catalogue').forEach(function (catalogue) {
         toggleProducts(catalogue.id); // Appel de la fonction pour afficher/masquer
     });
 });
-
-function toggleProducts(id) {
-    console.log("Catalogue cliqué:", id);
-    const catalogue = document.getElementById(id);
-    if (catalogue) {
-        const products = catalogue.querySelector(".catalogue-products");
-        if (products) {
-            products.style.display = products.style.display === "none" ? "block" : "none";
-        } else {
-            console.log("Aucun produit trouvé dans ce catalogue.");
-        }
-    }
-}
 
 
 

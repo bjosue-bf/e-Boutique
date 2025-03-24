@@ -188,10 +188,30 @@ window.addEventListener('load', () => {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Sélectionne tous les catalogues
     document.querySelectorAll('.catalogue').forEach(catalogue => {
         catalogue.addEventListener('click', function () {
             toggleProducts(catalogue.id);
+        });
+    });
+
+    // Ajout des événements pour les boutons de scroll
+    document.querySelectorAll('.catalogue-products').forEach(container => {
+        let leftBtn = document.createElement("button");
+        leftBtn.innerHTML = "&#10094;";
+        leftBtn.classList.add("scroll-btn", "scroll-left");
+        container.parentElement.appendChild(leftBtn);
+
+        let rightBtn = document.createElement("button");
+        rightBtn.innerHTML = "&#10095;";
+        rightBtn.classList.add("scroll-btn", "scroll-right");
+        container.parentElement.appendChild(rightBtn);
+
+        leftBtn.addEventListener("click", () => {
+            container.scrollBy({ left: -200, behavior: "smooth" });
+        });
+
+        rightBtn.addEventListener("click", () => {
+            container.scrollBy({ left: 200, behavior: "smooth" });
         });
     });
 });
@@ -207,32 +227,30 @@ function toggleProducts(catalogueId) {
         return;
     }
 
-    // Vérifie si les produits sont déjà visibles
     if (catalogue.classList.contains("active")) {
-        // Cache les produits
-        productsContainer.style.transform = "translateX(100%)"; // Fait glisser les produits hors écran
+        productsContainer.style.opacity = "0";
         setTimeout(() => {
             productsContainer.style.display = "none";
         }, 300);
         catalogue.classList.remove("active");
     } else {
-        // Affiche les produits
         document.querySelectorAll(".catalogue").forEach(cat => {
             var prod = cat.querySelector(".catalogue-products");
             if (prod) {
                 prod.style.display = "none";
-                prod.style.transform = "translateX(100%)";
+                prod.style.opacity = "0";
                 cat.classList.remove("active");
             }
         });
 
-        productsContainer.style.display = "flex"; // Affiche en mode horizontal
+        productsContainer.style.display = "flex";
         setTimeout(() => {
-            productsContainer.style.transform = "translateX(0%)"; // Anime l'entrée des produits
+            productsContainer.style.opacity = "1";
         }, 50);
         catalogue.classList.add("active");
     }
 }
+
 
 
 

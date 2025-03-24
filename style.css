@@ -965,3 +965,46 @@ footer {
 .scroll-right {
     right: 10px;
 }
+
+/* Fixer la largeur des cartes produits */
+.product {
+    min-width: 250px;
+    max-width: 250px;
+    height: auto;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Empêcher le texte de déborder */
+.product h4, .product p {
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* S'assurer que l'image ne déborde pas */
+.product img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Ajustement du texte */
+.product h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin: 10px 0;
+}
+
+.product p {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+    line-height: 1.4;
+    min-height: 40px; /* Assurer une hauteur minimum pour l'uniformité */
+}

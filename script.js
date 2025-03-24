@@ -333,3 +333,37 @@ document.addEventListener("DOMContentLoaded", function () {
         productContainer.scrollLeft += scrollStep;
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const viewAllBtn = document.querySelector(".view-all");
+    const productContainer = document.querySelector(".featured-product-container");
+
+    // Liste des nouveaux produits (ajoute tes propres produits ici)
+    const moreProducts = [
+        { name: "T-SHIRT NOIR", price: "€30,00", image: "tshirt4.jpg" },
+        { name: "T-SHIRT BLANC", price: "€25,00", image: "tshirt5.jpg" }
+    ];
+
+    viewAllBtn.addEventListener("click", function (e) {
+        e.preventDefault(); // Empêche la redirection
+
+        moreProducts.forEach(product => {
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("featured-product");
+            productDiv.setAttribute("data-name", product.name);
+            productDiv.setAttribute("data-price", product.price);
+            productDiv.setAttribute("data-image", product.image);
+            
+            productDiv.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <p class="featured-product-name">${product.name}</p>
+                <p class="featured-product-price">${product.price}</p>
+            `;
+
+            productContainer.appendChild(productDiv);
+        });
+
+        viewAllBtn.style.display = "none"; // Cache le bouton après affichage
+    });
+});

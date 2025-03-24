@@ -187,46 +187,53 @@ window.addEventListener('load', () => {
 });
 
 
-// Fonction pour afficher/masquer les produits d'un catalogue
+document.addEventListener("DOMContentLoaded", function () {
+    // Sélectionne tous les catalogues
+    document.querySelectorAll('.catalogue').forEach(catalogue => {
+        catalogue.addEventListener('click', function () {
+            toggleProducts(catalogue.id);
+        });
+    });
+});
+
 function toggleProducts(catalogueId) {
     console.log("Catalogue cliqué:", catalogueId);
 
-    var allCatalogues = document.querySelectorAll('.catalogue');
+    var catalogue = document.getElementById(catalogueId);
+    var productsContainer = catalogue.querySelector(".catalogue-products");
 
-    allCatalogues.forEach(function (catalogue) {
-        const products = catalogue.querySelector(".catalogue-products");
+    if (!productsContainer) {
+        console.log("Aucun produit trouvé dans ce catalogue.");
+        return;
+    }
 
-        if (catalogue.id === catalogueId) {
-            // Vérifier si le catalogue est déjà actif
-            if (catalogue.classList.contains('active')) {
-                catalogue.classList.remove('active'); // Masquer les produits
-                if (products) {
-                    products.style.maxHeight = "0px";
-                    setTimeout(() => { products.style.display = "none"; }, 300); // Cache après l’animation
-                }
-            } else {
-                catalogue.classList.add('active'); // Afficher les produits
-                if (products) {
-                    products.style.display = "block";
-                    products.style.maxHeight = products.scrollHeight + "px";
-                }
+    // Vérifie si les produits sont déjà visibles
+    if (catalogue.classList.contains("active")) {
+        // Cache les produits
+        productsContainer.style.transform = "translateX(100%)"; // Fait glisser les produits hors écran
+        setTimeout(() => {
+            productsContainer.style.display = "none";
+        }, 300);
+        catalogue.classList.remove("active");
+    } else {
+        // Affiche les produits
+        document.querySelectorAll(".catalogue").forEach(cat => {
+            var prod = cat.querySelector(".catalogue-products");
+            if (prod) {
+                prod.style.display = "none";
+                prod.style.transform = "translateX(100%)";
+                cat.classList.remove("active");
             }
-        } else {
-            catalogue.classList.remove('active'); // Masquer les autres catalogues
-            if (products) {
-                products.style.maxHeight = "0px";
-                setTimeout(() => { products.style.display = "none"; }, 300);
-            }
-        }
-    });
+        });
+
+        productsContainer.style.display = "flex"; // Affiche en mode horizontal
+        setTimeout(() => {
+            productsContainer.style.transform = "translateX(0%)"; // Anime l'entrée des produits
+        }, 50);
+        catalogue.classList.add("active");
+    }
 }
 
-// Ajouter un événement sur chaque en-tête de catalogue
-document.querySelectorAll('.catalogue').forEach(function (catalogue) {
-    catalogue.addEventListener('click', function () {
-        toggleProducts(catalogue.id); // Appel de la fonction pour afficher/masquer
-    });
-});
 
 
 

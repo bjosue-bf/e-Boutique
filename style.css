@@ -865,23 +865,25 @@ footer {
 /* Ajoute ce CSS à la fin de ton fichier style.css */
 
 /* Section des produits */
+/* Section des produits */
 .products-section {
     padding: 40px 20px;
     background-color: #f9f9f9;
     text-align: center;
+    position: relative;
 }
 
 /* Conteneur des produits en ligne horizontale */
 .products-container {
     display: flex;
-    overflow-x: auto; /* Permet de scroller horizontalement */
+    overflow-x: auto; /* Scroll horizontal */
     white-space: nowrap;
     gap: 20px;
     padding: 20px;
-    scroll-behavior: smooth; /* Effet fluide */
+    scroll-behavior: smooth; /* Défilement fluide */
 }
 
-/* Style des produits individuels */
+/* Style des produits */
 .product {
     background-color: #fff;
     border-radius: 8px;
@@ -898,7 +900,7 @@ footer {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Image du produit */
+/* Image des produits */
 .product img {
     width: 100%;
     max-width: 200px;
@@ -906,7 +908,7 @@ footer {
     border-radius: 5px;
 }
 
-/* Titre du produit */
+/* Titre des produits */
 .product h4 {
     font-size: 1.2rem;
     font-weight: 600;
@@ -919,7 +921,7 @@ footer {
     color: #555;
 }
 
-/* Bouton d'achat */
+/* Bouton "Acheter" */
 .buy-btn {
     background-color: #4CAF50;
     color: white;

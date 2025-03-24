@@ -212,6 +212,18 @@ document.querySelectorAll('.catalogue').forEach(function (catalogue) {
     });
 });
 
+function toggleProducts(id) {
+    console.log("Catalogue cliqué:", id);
+    const catalogue = document.getElementById(id);
+    if (catalogue) {
+        const products = catalogue.querySelector(".catalogue-products");
+        if (products) {
+            products.style.display = products.style.display === "none" ? "block" : "none";
+        } else {
+            console.log("Aucun produit trouvé dans ce catalogue.");
+        }
+    }
+}
 
 
 

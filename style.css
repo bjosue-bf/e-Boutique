@@ -1289,6 +1289,11 @@ footer {
     cursor: pointer;
 }
 
+.featured-prev, .featured-next {
+    display: none;
+}
+
+
 @media (max-width: 768px) {
     .featured-product {
         width: calc(50% - 20px); /* 2 produits par ligne sur mobile */

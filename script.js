@@ -231,19 +231,28 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const aboutSection = document.querySelector(".about-section");
     const stats = document.querySelectorAll(".stat");
     const images = document.querySelectorAll(".customer-img");
+    let statsAnimated = false; // Évite la répétition des animations
 
-    // Détection du scroll pour activer l'animation de la section
+    // Vérifie si la section est visible dans la fenêtre
+    function isVisible(element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top < window.innerHeight / 1.3;
+    }
+
+    // Active l'affichage de la section
     function handleScroll() {
-        const sectionPos = aboutSection.getBoundingClientRect().top;
-        const screenPos = window.innerHeight / 1.3; // Ajuste le déclenchement
-
-        if (sectionPos < screenPos) {
+        if (isVisible(aboutSection)) {
             aboutSection.classList.add("show");
+
+            if (!statsAnimated) {
+                animateStats();
+                floatImages();
+                statsAnimated = true; // Empêche la répétition des animations
+            }
         }
     }
 
@@ -265,20 +274,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Lancement des animations au scroll
-    window.addEventListener("scroll", function() {
-        handleScroll();
-        if (aboutSection.classList.contains("show")) {
-            animateStats();
-            floatImages();
-        }
-    });
+    // Écouteur d'événements pour le défilement
+    window.addEventListener("scroll", handleScroll);
 
-    // Pour activer immédiatement si déjà visible au chargement
+    // Vérifie au chargement si la section est déjà visible
     handleScroll();
 });
-</script>
-
-
-
-

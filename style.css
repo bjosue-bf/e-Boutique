@@ -936,31 +936,18 @@ footer {
 
 /* Contenu des produits - caché par défaut */
 .catalogue-products {
-    visibility: hidden; /* Masquer l'élément au début */
-    opacity: 0; /* Le rendre transparent */
+    display: none; /* Caché par défaut */
     flex-direction: column;
     gap: 20px;
     margin-top: 20px;
-    transition: opacity 0.5s ease, visibility 0s 0.5s; /* Transition sur l'opacité */
-}
-
-/* Animation pour faire apparaître les produits */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 /* Affichage des produits lorsque le catalogue est actif */
 .catalogue.active .catalogue-products {
-    visibility: visible; /* Rendre visible */
-    opacity: 1; /* Faire apparaître */
-    transition: opacity 0.5s ease; /* Transition sur l'opacité */
+    display: flex; /* Rend visible */
+    opacity: 1;
 }
 
 /* Style des produits individuels */

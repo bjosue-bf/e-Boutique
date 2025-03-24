@@ -191,24 +191,17 @@ window.addEventListener('load', () => {
 function toggleProducts(catalogueId) {
     var catalogue = document.getElementById(catalogueId);
 
-    // Sélectionne les produits du catalogue cliqué
-    var productsContainer = catalogue.querySelector('.catalogue-products');
-
     // Vérifie si ce catalogue est déjà actif
     var isActive = catalogue.classList.contains('active');
 
-    // Fermer tous les autres catalogues
+    // Fermer tous les catalogues avant d'ouvrir un nouveau
     document.querySelectorAll('.catalogue').forEach(function (cat) {
-        cat.classList.remove('active'); // Supprime la classe active
-        cat.querySelector('.catalogue-products').style.visibility = 'hidden';
-        cat.querySelector('.catalogue-products').style.opacity = '0';
+        cat.classList.remove('active');
     });
 
     // Si le catalogue n'était pas actif, on l'ouvre
     if (!isActive) {
-        catalogue.classList.add('active'); // Ajoute la classe active
-        productsContainer.style.visibility = 'visible';
-        productsContainer.style.opacity = '1';
+        catalogue.classList.add('active');
     }
 }
 
@@ -218,5 +211,6 @@ document.querySelectorAll('.catalogue').forEach(function (catalogue) {
         toggleProducts(catalogue.id);
     });
 });
+
 
 

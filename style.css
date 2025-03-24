@@ -1194,10 +1194,13 @@ footer {
 }
 
 .featured-product-container {
+    width: 100%;
+    max-width: 1200px; /* Ajuste si besoin */
+    margin: 0 auto; /* Centre la section */
     display: flex;
-    gap: 20px;
-    overflow: hidden;
-    max-width: 800px;
+    flex-wrap: wrap;
+    justify-content: center; /* Espacement uniforme */
+    gap: 20px; /* Espace entre les produits */
 }
 
 .featured-product {
@@ -1207,6 +1210,8 @@ footer {
     text-align: center;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
+    width: calc(33.33% - 20px); /* 4 produits par ligne */
+    min-width: 200px; /* Taille minimale pour éviter qu'ils soient trop petits */
 }
 
 .featured-product:hover {
@@ -1233,10 +1238,10 @@ footer {
 .featured-prev, .featured-next {
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 10px;
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 30%;
     transform: translateY(-50%);
     z-index: 2;
 }
@@ -1284,6 +1289,14 @@ footer {
     cursor: pointer;
 }
 
-.featured-prev, .featured-next {
-    display: none;
+@media (max-width: 768px) {
+    .featured-product {
+        width: calc(50% - 20px); /* 2 produits par ligne sur mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-product {
+        width: 100%; /* 1 produit par ligne sur petits écrans */
+    }
 }

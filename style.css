@@ -1164,3 +1164,122 @@ footer {
     from { transform: translateY(0); }
     to { transform: translateY(-10px); }
 }
+
+
+/* Section Produits Mis en Avant */
+.featured-product-gallery {
+    text-align: center;
+    padding: 20px;
+}
+
+.featured-product-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.view-all {
+    color: #ff8c00;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.featured-product-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.featured-product-container {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    max-width: 800px;
+}
+
+.featured-product {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.featured-product:hover {
+    transform: scale(1.05);
+}
+
+.featured-product img {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.featured-product-name {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.featured-product-price {
+    color: #777;
+    font-size: 14px;
+}
+
+/* Boutons de navigation */
+.featured-prev, .featured-next {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.featured-prev {
+    left: -40px;
+}
+
+.featured-next {
+    right: -40px;
+}
+
+/* Modal produit */
+.featured-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.featured-modal-content {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 300px;
+}
+
+.featured-modal img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.featured-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}

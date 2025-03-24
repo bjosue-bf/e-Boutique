@@ -1283,3 +1283,7 @@ footer {
     font-size: 24px;
     cursor: pointer;
 }
+
+.featured-prev, .featured-next {
+    display: none;
+}

@@ -280,3 +280,56 @@ document.addEventListener("DOMContentLoaded", function () {
     // Vérifie au chargement si la section est déjà visible
     handleScroll();
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const products = document.querySelectorAll(".featured-product");
+    const modal = document.getElementById("featured-product-modal");
+    const modalImage = document.getElementById("featured-modal-image");
+    const modalTitle = document.getElementById("featured-modal-title");
+    const modalPrice = document.getElementById("featured-modal-price");
+    const closeModal = document.querySelector(".featured-close");
+
+    // Ouvrir la modal au clic sur un produit
+    products.forEach(product => {
+        product.addEventListener("click", function () {
+            const name = this.getAttribute("data-name");
+            const price = this.getAttribute("data-price");
+            const image = this.getAttribute("data-image");
+
+            modalImage.src = image;
+            modalTitle.textContent = name;
+            modalPrice.textContent = price;
+
+            modal.style.display = "flex";
+        });
+    });
+
+    // Fermer la modal
+    closeModal.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Slider Produits
+    const prevBtn = document.querySelector(".featured-prev");
+    const nextBtn = document.querySelector(".featured-next");
+    const productContainer = document.querySelector(".featured-product-container");
+
+    let scrollAmount = 0;
+    const scrollStep = 200; 
+
+    prevBtn.addEventListener("click", function () {
+        productContainer.scrollLeft -= scrollStep;
+    });
+
+    nextBtn.addEventListener("click", function () {
+        productContainer.scrollLeft += scrollStep;
+    });
+});

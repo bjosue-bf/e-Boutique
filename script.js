@@ -187,30 +187,31 @@ window.addEventListener('load', () => {
 });
 
 
-// Fonction pour afficher ou masquer les produits d'un catalogue
+// Fonction pour afficher/masquer les produits d'un catalogue
 function toggleProducts(catalogueId) {
-    var catalogue = document.getElementById(catalogueId);
-
-    // Vérifie si ce catalogue est déjà actif
-    var isActive = catalogue.classList.contains('active');
-
-    // Fermer tous les catalogues avant d'ouvrir un nouveau
-    document.querySelectorAll('.catalogue').forEach(function (cat) {
-        cat.classList.remove('active');
+    var allCatalogues = document.querySelectorAll('.catalogue');
+    
+    allCatalogues.forEach(function (catalogue) {
+        if (catalogue.id === catalogueId) {
+            // Vérifier si le catalogue est déjà actif
+            if (catalogue.classList.contains('active')) {
+                catalogue.classList.remove('active'); // Masquer les produits
+            } else {
+                catalogue.classList.add('active'); // Afficher les produits
+            }
+        } else {
+            catalogue.classList.remove('active'); // Masquer les autres catalogues
+        }
     });
-
-    // Si le catalogue n'était pas actif, on l'ouvre
-    if (!isActive) {
-        catalogue.classList.add('active');
-    }
 }
 
-// Ajout des événements de clic sur chaque catalogue
+// Ajouter un événement sur chaque en-tête de catalogue
 document.querySelectorAll('.catalogue').forEach(function (catalogue) {
     catalogue.addEventListener('click', function () {
-        toggleProducts(catalogue.id);
+        toggleProducts(catalogue.id); // Appel de la fonction pour afficher/masquer
     });
 });
+
 
 
 

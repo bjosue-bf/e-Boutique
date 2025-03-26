@@ -6,20 +6,18 @@
     <title>e-Boutique</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Loader -->
     <div class="loader">
-        <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <p>Chargement...</p>
-        </div>
+        <div class="loader-spinner"></div>
     </div>
 
     <!-- HEADER -->
     <header>
         <div class="menu-container">
-            <!-- Bouton hamburger -->
+            <!-- Bouton hamburger (3 barres) -->
             <div class="hamburger" id="hamburger-menu">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -40,7 +38,7 @@
                 <!-- Barre de recherche -->
                 <div class="search-bar">
                     <input type="text" id="search-input" placeholder="Rechercher...">
-                    <button id="search-button">🔍</button>
+                    <button id="search-button"><i class="fas fa-search"></i></button>
                     <div id="search-results"></div>
                 </div>
             </nav>
@@ -51,7 +49,10 @@
     <section id="accueil" class="home-banner">
         <h1>Bienvenue dans notre Boutique en Ligne</h1>
         <p>Découvrez des articles exclusifs et profitez de nos offres incroyables !</p>
-        <a href="#canva-pro" class="cta-btn">Voir Canva Pro</a>
+        <div class="cta-buttons">
+            <a href="#canva-pro" class="cta-btn">Voir Canva Pro</a>
+            <a href="#produits" class="cta-btn secondary">Nos Produits</a>
+        </div>
     </section>
 
     <!-- SECTION CANVA PRO -->
@@ -75,8 +76,10 @@
                 <li><strong>Assistance client en ligne</strong></li>
             </ul>
 
-            <!-- Bouton PayPal -->
-            <form action="https://www.paypal.com/instantcommerce/checkout/undefined" method="post" target="_blank" class="paypal-btn">
+            <!-- Bouton PayPal pour acheter Canva Pro -->
+            <form action="https://www.paypal.com/checkout" method="post" target="_blank" class="paypal-btn">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
                 <input class="pp-B5JXRGFYCRD6G" type="submit" value="Profitez de Canva Pro maintenant" />
                 <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
                 <section>Optimisé par <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;" /></section>
@@ -84,7 +87,7 @@
         </div>
     </section>
 
-    <!-- Video Canva -->
+    <!-- Logo Canva et capture d'écran -->
     <div class="canva-video">
         <video id="canva-video" width="100%" muted loop playsinline>
             <source src="canva-video.mp4" type="video/mp4">
@@ -96,7 +99,7 @@
     <section id="articles">
         <h2>Nos Articles Populaires</h2>
         <div class="articles-list">
-            <!-- Article 1 -->
+            <!-- Article 1 : Canva Pro -->
             <div class="article">
                 <img src="canva.jpg" alt="Canva Pro">
                 <h3>Canva Pro</h3>
@@ -104,7 +107,7 @@
                 <a href="https://www.paypal.com/ncp/payment/PH3GDQ9STZWUY" class="buy-btn">Acheter</a>
             </div>
 
-            <!-- Article 2 -->
+            <!-- Article 2 : Abonnement YGG TORRENT -->
             <div class="article">
                 <img src="ygg-torrent.png" alt="Spotify Premium">
                 <h3>YGG Torrent</h3>
@@ -112,7 +115,7 @@
                 <a href="https://cbl.link/rYZS69E" class="buy-btn">Acheter</a>
             </div>
 
-            <!-- Article 3 -->
+            <!-- Article 3 : COMPT IPTV -->
             <div class="article">
                 <img src="iptv.png" alt="Nintendo Switch">
                 <h3>Compte IPTV</h3>
@@ -120,7 +123,7 @@
                 <a href="https://cbl.link/rYZS69E" class="buy-btn">Acheter</a>
             </div>
 
-            <!-- Article 4 -->
+            <!-- Article 4 : Page facebook -->
             <div class="article">
                 <img src="facebook.png" alt="Casque Bluetooth Bose">
                 <h3>Boostez votre page facebook</h3>
@@ -128,7 +131,7 @@
                 <a href="https://cbl.link/rYZS69E" class="buy-btn">Acheter</a>
             </div>
 
-            <!-- Article 5 -->
+            <!-- Article 5 : Apple Watch Série 8 -->
             <div class="article">
                 <img src="https://via.placeholder.com/250x150" alt="Apple Watch Série 8">
                 <h3>Apple Watch Série 8</h3>
@@ -141,63 +144,66 @@
     <!-- SECTION NOS PRODUITS -->
     <section id="produits" class="products-section">
         <h2>Nos Produits</h2>
-        <button class="scroll-btn scroll-left">&#10094;</button>
-        <div class="products-container">
-            <div class="product">
-                <img src="product1.jpg" alt="Smartphone 2025">
-                <h4>Smartphone 2025</h4>
-                <p>Le smartphone ultime avec toutes les fonctionnalités avancées.</p>
-                <a href="#" class="buy-btn">Acheter</a>
+        <div class="products-scroll-container">
+            <button class="scroll-btn scroll-left">&#10094;</button>
+            <div class="products-container">
+                <div class="product">
+                    <img src="product1.jpg" alt="Smartphone 2025">
+                    <h4>Smartphone 2025</h4>
+                    <p>Le smartphone ultime avec toutes les fonctionnalités avancées.</p>
+                    <a href="#" class="buy-btn">Acheter</a>
+                </div>
+                <div class="product">
+                    <img src="product2.jpg" alt="Casque Audio Bluetooth">
+                    <h4>Casque Audio Bluetooth</h4>
+                    <p>Profitez d'une qualité sonore exceptionnelle avec ce casque Bluetooth.</p>
+                    <a href="#" class="buy-btn">Acheter</a>
+                </div>
+                <div class="product">
+                    <img src="product3.jpg" alt="Montre Connectée">
+                    <h4>Montre Connectée</h4>
+                    <p>Suivez vos performances sportives avec cette montre connectée de dernière génération.</p>
+                    <a href="#" class="buy-btn">Acheter</a>
+                </div>
+                <div class="product">
+                    <img src="product4.jpg" alt="Laptop Ultra-Rapide">
+                    <h4>Laptop Ultra-Rapide</h4>
+                    <p>Le PC portable pour les professionnels avec une vitesse incomparable.</p>
+                    <a href="#" class="buy-btn">Acheter</a>
+                </div>
+                <div class="product">
+                    <img src="product5.jpg" alt="Sac à Main Cuir">
+                    <h4>Sac à Main Cuir</h4>
+                    <p>Un sac à main élégant en cuir véritable pour toutes les occasions.</p>
+                    <a href="#" class="buy-btn">Acheter</a>
+                </div>
+                <div class="product">
+                    <img src="product6.jpg" alt="Montre de Luxe">
+                    <h4>Montre de Luxe</h4>
+                    <p>Montre de luxe en acier inoxydable avec bracelet en cuir véritable.</p>
+                    <a href="#" class="buy-btn">Acheter</a>
+                </div>
+                <div class="product">
+                    <img src="product7.jpg" alt="Chaussures Sport">
+                    <h4>Chaussures Sport</h4>
+                    <p>Des chaussures de sport ultra confortables pour toutes vos activités.</p>
+                    <a href="#" class="buy-btn">Acheter</a>
+                </div>
+                <div class="product">
+                    <img src="product8.jpg" alt="Robe Élégante">
+                    <h4>Robe Élégante</h4>
+                    <p>Une robe élégante et moderne pour vos sorties spéciales.</p>
+                    <a href="#" class="buy-btn">Acheter</a>
+                </div>
             </div>
-            <div class="product">
-                <img src="product2.jpg" alt="Casque Audio Bluetooth">
-                <h4>Casque Audio Bluetooth</h4>
-                <p>Profitez d'une qualité sonore exceptionnelle avec ce casque Bluetooth.</p>
-                <a href="#" class="buy-btn">Acheter</a>
-            </div>
-            <div class="product">
-                <img src="product3.jpg" alt="Montre Connectée">
-                <h4>Montre Connectée</h4>
-                <p>Suivez vos performances sportives avec cette montre connectée de dernière génération.</p>
-                <a href="#" class="buy-btn">Acheter</a>
-            </div>
-            <div class="product">
-                <img src="product4.jpg" alt="Laptop Ultra-Rapide">
-                <h4>Laptop Ultra-Rapide</h4>
-                <p>Le PC portable pour les professionnels avec une vitesse incomparable.</p>
-                <a href="#" class="buy-btn">Acheter</a>
-            </div>
-            <div class="product">
-                <img src="product5.jpg" alt="Sac à Main Cuir">
-                <h4>Sac à Main Cuir</h4>
-                <p>Un sac à main élégant en cuir véritable pour toutes les occasions.</p>
-                <a href="#" class="buy-btn">Acheter</a>
-            </div>
-            <div class="product">
-                <img src="product6.jpg" alt="Montre de Luxe">
-                <h4>Montre de Luxe</h4>
-                <p>Montre de luxe en acier inoxydable avec bracelet en cuir véritable.</p>
-                <a href="#" class="buy-btn">Acheter</a>
-            </div>
-            <div class="product">
-                <img src="product7.jpg" alt="Chaussures Sport">
-                <h4>Chaussures Sport</h4>
-                <p>Des chaussures de sport ultra confortables pour toutes vos activités.</p>
-                <a href="#" class="buy-btn">Acheter</a>
-            </div>
-            <div class="product">
-                <img src="product8.jpg" alt="Robe Élégante">
-                <h4>Robe Élégante</h4>
-                <p>Une robe élégante et moderne pour vos sorties spéciales.</p>
-                <a href="#" class="buy-btn">Acheter</a>
-            </div>
+            <button class="scroll-btn scroll-right">&#10095;</button>
         </div>
-        <button class="scroll-btn scroll-right">&#10095;</button>
     </section>
 
-    <!-- SECTION À PROPOS -->
+    <!-- SECTION À PROPOS & STATISTIQUES -->
     <section id="about-shop" class="about-section">
         <div class="about-container">
+            <!-- Bloc gauche : Logo + Description -->
             <div class="about-text">
                 <img src="logo-boutique.png" alt="Logo Boutique" class="about-logo">
                 <h2>Nous ne vendons pas seulement des produits</h2>
@@ -210,6 +216,7 @@
                 <p><strong>Rejoignez nos milliers de clients satisfaits !</strong></p>
             </div>
 
+            <!-- Bloc droit : Statistiques -->
             <div class="about-stats">
                 <div class="stat">
                     <span>📦</span>
@@ -229,6 +236,7 @@
             </div>
         </div>
 
+        <!-- Bloc images dynamiques -->
         <div class="customer-gallery">
             <img src="client1.jpg" alt="Client heureux" class="customer-img img1">
             <img src="client2.jpg" alt="Avis client" class="customer-img img2">
@@ -264,13 +272,14 @@
         </div>
     </section>
 
-    <!-- MODAL PRODUIT -->
+    <!-- MODAL PRODUIT (Affichage détaillé) -->
     <div id="featured-product-modal" class="featured-modal">
         <div class="featured-modal-content">
             <span class="featured-close">&times;</span>
             <img id="featured-modal-image" src="" alt="Produit">
             <h3 id="featured-modal-title"></h3>
             <p id="featured-modal-price"></p>
+            <button class="add-to-cart">Ajouter au panier</button>
         </div>
     </div>
 
@@ -279,18 +288,22 @@
         <h2>Avis Clients</h2>
         <div class="avis-container">
             <div class="avis">
+                <div class="rating">★★★★★</div>
                 <p>J'étais novice en design, mais Canva Pro m'a permis de créer des visuels professionnels en un clin d'œil. Je recommande vivement !</p>
                 <p><strong> Marie SAWADOGO.</strong></p>
             </div>
             <div class="avis">
+                <div class="rating">★★★★☆</div>
                 <p>J'ai trouvé des raretés introuvables ailleurs sur YGG. La qualité des fichiers est excellente, et le site est très bien organisé.</p>
                 <p><strong>Jean ILBOUDO.</strong></p>
             </div>
             <div class="avis">
+                <div class="rating">★★★★★</div>
                 <p>J'ai été bluffé par le nombre de chaînes disponibles avec mon abonnement IPTV. Je peux regarder des chaînes du monde entier, et la qualité de l'image est parfaite.</p>
                 <p><strong>Nadia Kambou.</strong></p>
             </div>
             <div class="avis">
+                <div class="rating">★★★★☆</div>
                 <p>La publicité sur Facebook m'a permis de toucher un public beaucoup plus large que je n'aurais jamais pu atteindre avec les méthodes traditionnelles. C'est un excellent moyen de développer sa notoriété.</p>
                 <p><strong>David M., community manager.</strong></p>
             </div>
@@ -300,15 +313,70 @@
     <!-- SECTION CONTACT -->
     <section id="contact">
         <h2>Contact</h2>
-        <p>Pour toute demande, rejoins-nous sur WhatsApp !</p>
-        <a href="https://cbl.link/rYZS69E" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp">
-        </a>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Informations de contact</h3>
+                <p><i class="fas fa-envelope"></i> contact@eboutique.com</p>
+                <p><i class="fas fa-phone"></i> +33 6 12 34 56 78</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Rue de la Boutique, Paris</p>
+            </div>
+            <div class="contact-form">
+                <h3>Envoyez-nous un message</h3>
+                <form id="contactForm">
+                    <input type="text" placeholder="Votre nom" required>
+                    <input type="email" placeholder="Votre email" required>
+                    <textarea placeholder="Votre message" required></textarea>
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div>
+        </div>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/33612345678"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+        <h2>Abonnez-vous à notre newsletter</h2>
+        <p>Recevez nos offres exclusives et nouveautés directement dans votre boîte mail.</p>
+        <form id="newsletterForm">
+            <input type="email" placeholder="Votre adresse email" required>
+            <button type="submit">S'abonner</button>
+        </form>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2025 e-Boutique. Tous droits réservés.</p>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>A propos</h3>
+                <p>Notre boutique en ligne vous propose les meilleurs produits aux prix les plus compétitifs.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#avis">Avis</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">CGV</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 e-Boutique. Tous droits réservés.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>

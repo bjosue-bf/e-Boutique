@@ -14,6 +14,7 @@ if (hamburgerMenu) {
     hamburgerMenu.addEventListener("click", () => {
         hamburgerMenu.classList.toggle("active");
         menuList.classList.toggle("show");
+        document.body.style.overflow = menuList.classList.contains("show") ? "hidden" : "auto";
     });
 }
 
@@ -23,14 +24,20 @@ navLinks.forEach(link => {
     link.addEventListener('click', () => {
         menuList.classList.remove("show");
         hamburgerMenu.classList.remove("active");
+        document.body.style.overflow = "auto";
     });
 });
 
 // Fonction de recherche
 function searchSite() {
-    const searchTerm = document.getElementById('search-input').value.toLowerCase();
+    const searchTerm = document.getElementById('search-input').value.trim().toLowerCase();
     const articles = document.querySelectorAll('.article');
     let found = false;
+
+    if (!searchTerm) {
+        articles.forEach(article => article.classList.remove('hidden'));
+        return;
+    }
 
     articles.forEach(article => {
         const articleContent = article.textContent.toLowerCase();
@@ -111,7 +118,7 @@ window.addEventListener('scroll', function() {
 const articleImages = document.querySelectorAll('.article img');
 articleImages.forEach(image => {
     image.addEventListener('mouseover', () => {
-        image.style.transform = 'scale(1.1)';
+        image.style.transform = 'scale(1.05)';
         image.style.transition = 'transform 0.3s ease';
     });
 
@@ -125,7 +132,7 @@ articleImages.forEach(image => {
 const avisCards = document.querySelectorAll('.avis');
 avisCards.forEach(card => {
     card.addEventListener('mouseover', () => {
-        card.style.transform = 'scale(1.05)';
+        card.style.transform = 'scale(1.03)';
         card.style.transition = 'transform 0.3s ease-in-out';
     });
 
@@ -161,6 +168,8 @@ function playVideoOnScroll() {
             video.play().catch((error) => {
                 console.error("Erreur de lecture de la vidéo :", error);
             });
+        } else if (!isVisible && !video.paused) {
+            video.pause();
         }
     }
 }
@@ -169,19 +178,38 @@ window.addEventListener('scroll', playVideoOnScroll);
 
 // Slider produits
 document.addEventListener("DOMContentLoaded", function() {
-    const productsContainer = document.querySelector(".products-container");
-    const leftBtn = document.querySelector(".scroll-left");
-    const rightBtn = document.querySelector(".scroll-right");
+    const setupSlider = (containerSelector, prevBtnSelector, nextBtnSelector) => {
+        const container = document.querySelector(containerSelector);
+        const prevBtn = document.querySelector(prevBtnSelector);
+        const nextBtn = document.querySelector(nextBtnSelector);
 
-    if (leftBtn && rightBtn && productsContainer) {
-        leftBtn.addEventListener("click", () => {
-            productsContainer.scrollBy({ left: -300, behavior: "smooth" });
+        if (!container || !prevBtn || !nextBtn) return;
+
+        const updateButtons = () => {
+            prevBtn.disabled = container.scrollLeft <= 0;
+            nextBtn.disabled = container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
+            
+            prevBtn.style.opacity = prevBtn.disabled ? "0.5" : "1";
+            nextBtn.style.opacity = nextBtn.disabled ? "0.5" : "1";
+            prevBtn.style.cursor = prevBtn.disabled ? "not-allowed" : "pointer";
+            nextBtn.style.cursor = nextBtn.disabled ? "not-allowed" : "pointer";
+        };
+
+        prevBtn.addEventListener("click", () => {
+            container.scrollBy({ left: -300, behavior: "smooth" });
         });
 
-        rightBtn.addEventListener("click", () => {
-            productsContainer.scrollBy({ left: 300, behavior: "smooth" });
+        nextBtn.addEventListener("click", () => {
+            container.scrollBy({ left: 300, behavior: "smooth" });
         });
-    }
+
+        container.addEventListener("scroll", updateButtons);
+        updateButtons();
+    };
+
+    // Initialisation des sliders
+    setupSlider(".products-container", ".scroll-left", ".scroll-right");
+    setupSlider(".featured-product-container", ".featured-prev", ".featured-next");
 });
 
 // Animation section about
@@ -230,58 +258,52 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Modal produits
 document.addEventListener("DOMContentLoaded", function() {
-    const products = document.querySelectorAll(".featured-product");
     const modal = document.getElementById("featured-product-modal");
+    if (!modal) return;
+
     const modalImage = document.getElementById("featured-modal-image");
     const modalTitle = document.getElementById("featured-modal-title");
     const modalPrice = document.getElementById("featured-modal-price");
     const closeModal = document.querySelector(".featured-close");
 
-    if (products.length && modal) {
-        products.forEach(product => {
-            product.addEventListener("click", function() {
-                const name = this.getAttribute("data-name");
-                const price = this.getAttribute("data-price");
-                const image = this.getAttribute("data-image");
+    // Gestion de l'ouverture de la modal
+    document.addEventListener("click", function(e) {
+        const productCard = e.target.closest(".featured-product");
+        if (productCard) {
+            const name = productCard.getAttribute("data-name");
+            const price = productCard.getAttribute("data-price");
+            const image = productCard.getAttribute("data-image");
 
-                modalImage.src = image;
-                modalTitle.textContent = name;
-                modalPrice.textContent = price;
+            modalImage.src = image;
+            modalTitle.textContent = name;
+            modalPrice.textContent = price;
 
-                modal.style.display = "flex";
-                document.body.style.overflow = "hidden";
-            });
-        });
-
-        if (closeModal) {
-            closeModal.addEventListener("click", function() {
-                modal.style.display = "none";
-                document.body.style.overflow = "auto";
-            });
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
         }
+    });
 
-        window.addEventListener("click", function(e) {
-            if (e.target === modal) {
-                modal.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
-        });
+    // Fermeture de la modal
+    function closeModalFunc() {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
     }
 
-    // Slider Produits
-    const prevBtn = document.querySelector(".featured-prev");
-    const nextBtn = document.querySelector(".featured-next");
-    const productContainer = document.querySelector(".featured-product-container");
-
-    if (prevBtn && nextBtn && productContainer) {
-        prevBtn.addEventListener("click", function() {
-            productContainer.scrollBy({ left: -300, behavior: "smooth" });
-        });
-
-        nextBtn.addEventListener("click", function() {
-            productContainer.scrollBy({ left: 300, behavior: "smooth" });
-        });
+    if (closeModal) {
+        closeModal.addEventListener("click", closeModalFunc);
     }
+
+    window.addEventListener("click", function(e) {
+        if (e.target === modal) {
+            closeModalFunc();
+        }
+    });
+
+    window.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && modal.style.display === "flex") {
+            closeModalFunc();
+        }
+    });
 });
 
 // View All Products
@@ -290,33 +312,40 @@ document.addEventListener("DOMContentLoaded", function() {
     const productContainer = document.querySelector(".featured-product-container");
 
     if (viewAllBtn && productContainer) {
-        const moreProducts = [
-            { name: "T-SHIRT NOIR", price: "€30,00", image: "tshirt4.jpg" },
-            { name: "T-SHIRT BLANC", price: "€25,00", image: "tshirt5.jpg" },
-            { name: "T-SHIRT ROUGE", price: "€28,00", image: "tshirt6.jpg" },
-            { name: "T-SHIRT BLEU", price: "€27,00", image: "tshirt7.jpg" }
-        ];
-
         viewAllBtn.addEventListener("click", function(e) {
             e.preventDefault();
             
-            moreProducts.forEach(product => {
-                const productDiv = document.createElement("div");
-                productDiv.classList.add("featured-product");
-                productDiv.setAttribute("data-name", product.name);
-                productDiv.setAttribute("data-price", product.price);
-                productDiv.setAttribute("data-image", product.image);
-                
-                productDiv.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}">
-                    <p class="featured-product-name">${product.name}</p>
-                    <p class="featured-product-price">${product.price}</p>
-                `;
+            // Animation de chargement
+            const originalText = viewAllBtn.textContent;
+            viewAllBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement...';
+            
+            // Simulation de chargement asynchrone
+            setTimeout(() => {
+                const moreProducts = [
+                    { name: "T-SHIRT NOIR", price: "€30,00", image: "tshirt4.jpg" },
+                    { name: "T-SHIRT BLANC", price: "€25,00", image: "tshirt5.jpg" },
+                    { name: "T-SHIRT ROUGE", price: "€28,00", image: "tshirt6.jpg" },
+                    { name: "T-SHIRT BLEU", price: "€27,00", image: "tshirt7.jpg" }
+                ];
 
-                productContainer.appendChild(productDiv);
-            });
+                moreProducts.forEach(product => {
+                    const productDiv = document.createElement("div");
+                    productDiv.classList.add("featured-product");
+                    productDiv.setAttribute("data-name", product.name);
+                    productDiv.setAttribute("data-price", product.price);
+                    productDiv.setAttribute("data-image", product.image);
+                    
+                    productDiv.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                        <p class="featured-product-name">${product.name}</p>
+                        <p class="featured-product-price">${product.price}</p>
+                    `;
 
-            viewAllBtn.style.display = "none";
+                    productContainer.appendChild(productDiv);
+                });
+
+                viewAllBtn.style.display = "none";
+            }, 800);
         });
     }
 });
@@ -327,6 +356,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (contactForm) {
         contactForm.addEventListener("submit", function(e) {
             e.preventDefault();
+            // Ici vous pourriez ajouter un vrai traitement du formulaire
             alert("Merci pour votre message ! Nous vous contacterons bientôt.");
             this.reset();
         });
@@ -336,40 +366,9 @@ document.addEventListener("DOMContentLoaded", function() {
     if (newsletterForm) {
         newsletterForm.addEventListener("submit", function(e) {
             e.preventDefault();
+            // Ici vous pourriez ajouter un vrai traitement du formulaire
             alert("Merci pour votre inscription à notre newsletter !");
             this.reset();
         });
-    }
-});
-
-// Product slider navigation buttons visibility
-document.addEventListener("DOMContentLoaded", function() {
-    const productsContainer = document.querySelector(".products-container");
-    const leftBtn = document.querySelector(".scroll-left");
-    const rightBtn = document.querySelector(".scroll-right");
-
-    function updateButtonVisibility() {
-        if (productsContainer) {
-            if (productsContainer.scrollLeft <= 0) {
-                leftBtn.style.opacity = "0.5";
-                leftBtn.style.cursor = "default";
-            } else {
-                leftBtn.style.opacity = "1";
-                leftBtn.style.cursor = "pointer";
-            }
-
-            if (productsContainer.scrollLeft + productsContainer.clientWidth >= productsContainer.scrollWidth - 1) {
-                rightBtn.style.opacity = "0.5";
-                rightBtn.style.cursor = "default";
-            } else {
-                rightBtn.style.opacity = "1";
-                rightBtn.style.cursor = "pointer";
-            }
-        }
-    }
-
-    if (productsContainer) {
-        productsContainer.addEventListener("scroll", updateButtonVisibility);
-        updateButtonVisibility();
     }
 });

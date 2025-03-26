@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-Boutique - Votre boutique en ligne premium</title>
-    <meta name="description" content="Découvrez nos produits exclusifs, abonnements premium et services numériques au meilleur prix">
-    <meta name="keywords" content="boutique en ligne, Canva Pro, YGG Torrent, IPTV, produits numériques">
+    <title>e-Boutique</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
-    <meta name="theme-color" content="#3a05e7">
 </head>
 <body>
     <!-- Loader -->
-    <div class="loader" id="page-loader"></div>
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>Chargement...</p>
+        </div>
+    </div>
 
     <!-- HEADER -->
     <header>
@@ -23,30 +25,23 @@
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
-            
             <!-- Menu de navigation -->
             <nav id="menu-list">
                 <ul>
                     <li><a href="#accueil" class="nav-link">Accueil</a></li>
                     <li><a href="#canva-pro" class="nav-link">Canva Pro</a></li>
                     <li><a href="#articles" class="nav-link">Nos Articles</a></li>
+                    <li><a href="#produits" class="nav-link">Nos Produits</a></li>
                     <li><a href="#avis" class="nav-link">Avis Clients</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                     <li><a href="blog.html" class="nav-link">Blog</a></li>
                     <li><a href="faq.html" class="nav-link">FAQ</a></li>
                 </ul>
-                
                 <!-- Barre de recherche -->
                 <div class="search-bar">
                     <input type="text" id="search-input" placeholder="Rechercher...">
                     <button id="search-button">🔍</button>
                     <div id="search-results"></div>
-                </div>
-                
-                <!-- Panier -->
-                <div class="cart-icon">
-                    🛒
-                    <span class="cart-count">0</span>
                 </div>
             </nav>
         </div>
@@ -56,10 +51,7 @@
     <section id="accueil" class="home-banner">
         <h1>Bienvenue dans notre Boutique en Ligne</h1>
         <p>Découvrez des articles exclusifs et profitez de nos offres incroyables !</p>
-        <div class="cta-group">
-            <a href="#canva-pro" class="cta-btn">Voir Canva Pro</a>
-            <a href="#articles" class="cta-btn">Nos Produits</a>
-        </div>
+        <a href="#canva-pro" class="cta-btn">Voir Canva Pro</a>
     </section>
 
     <!-- SECTION CANVA PRO -->
@@ -67,7 +59,7 @@
         <div class="canva-block">
             <h2>Profitez de Canva Pro</h2>
             <div class="canva-logo">
-                <img src="Canva-logo.png" alt="Canva Logo" loading="lazy">
+                <img src="Canva-logo.png" alt="Canva Logo">
             </div>
             <p>Accédez à Canva Pro pendant 2 ans pour seulement <strong>17€</strong> !</p>
             <p>Tout ce qui est inclus dans la version Pro :</p>
@@ -86,55 +78,61 @@
             <!-- Bouton PayPal -->
             <form action="https://www.paypal.com/instantcommerce/checkout/undefined" method="post" target="_blank" class="paypal-btn">
                 <input class="pp-B5JXRGFYCRD6G" type="submit" value="Profitez de Canva Pro maintenant" />
-                <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" loading="lazy">
-                <section>Optimisé par <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;" loading="lazy"></section>
+                <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+                <section>Optimisé par <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;" /></section>
             </form>
         </div>
     </section>
 
-    <!-- SECTION VIDEO CANVA -->
-    <div class="video-section">
-        <div class="canva-video">
-            <video id="canva-video" width="100%" muted loop playsinline autoplay>
-                <source src="canva-video.mp4" type="video/mp4">
-                Votre navigateur ne prend pas en charge la vidéo.
-            </video>
-        </div>
+    <!-- Video Canva -->
+    <div class="canva-video">
+        <video id="canva-video" width="100%" muted loop playsinline>
+            <source src="canva-video.mp4" type="video/mp4">
+            Votre navigateur ne prend pas en charge la vidéo.
+        </video>
     </div>
 
     <!-- SECTION NOS ARTICLES -->
     <section id="articles">
         <h2>Nos Articles Populaires</h2>
         <div class="articles-list">
-            <!-- Article 1 : Canva Pro -->
+            <!-- Article 1 -->
             <div class="article">
-                <img src="canva.jpg" alt="Canva Pro" loading="lazy">
+                <img src="canva.jpg" alt="Canva Pro">
                 <h3>Canva Pro</h3>
                 <p>Accédez à toutes les fonctionnalités premium pour 10.000F CFA / 2ans.</p>
                 <a href="https://www.paypal.com/ncp/payment/PH3GDQ9STZWUY" class="buy-btn">Acheter</a>
             </div>
 
-            <!-- Article 2 : Abonnement YGG TORRENT -->
+            <!-- Article 2 -->
             <div class="article">
-                <img src="ygg-torrent.png" alt="YGG Torrent" loading="lazy">
+                <img src="ygg-torrent.png" alt="Spotify Premium">
                 <h3>YGG Torrent</h3>
-                <p>Créez votre compte YGG torrent pour 6€ et téléchargez des jeux, films, séries et formations.</p>
+                <p>Créez votre compte YGG torrent pour 6€ et téléchargez des jeux; films; séries; des formations et bien d'autres.</p>
                 <a href="https://cbl.link/rYZS69E" class="buy-btn">Acheter</a>
             </div>
 
-            <!-- Article 3 : COMPT IPTV -->
+            <!-- Article 3 -->
             <div class="article">
-                <img src="iptv.png" alt="Compte IPTV" loading="lazy">
+                <img src="iptv.png" alt="Nintendo Switch">
                 <h3>Compte IPTV</h3>
-                <p>Accédez à des milliers de chaînes du monde entier, films et séries.</p>
+                <p>Accédez à des milliers de chaînes du monde entier, des films, des séries et beaucoup plus.</p>
                 <a href="https://cbl.link/rYZS69E" class="buy-btn">Acheter</a>
             </div>
 
-            <!-- Article 4 : Page facebook -->
+            <!-- Article 4 -->
             <div class="article">
-                <img src="facebook.png" alt="Boost Facebook" loading="lazy">
-                <h3>Boostez votre page Facebook</h3>
+                <img src="facebook.png" alt="Casque Bluetooth Bose">
+                <h3>Boostez votre page facebook</h3>
                 <p>Création de campagnes publicitaires adaptées aux objectifs recherchés.</p>
+                <a href="https://cbl.link/rYZS69E" class="buy-btn">Acheter</a>
+            </div>
+
+            <!-- Article 5 -->
+            <div class="article">
+                <img src="https://via.placeholder.com/250x150" alt="Apple Watch Série 8">
+                <h3>Apple Watch Série 8</h3>
+                <p>Suivez vos performances et soyez connecté en permanence.</p>
                 <a href="https://cbl.link/rYZS69E" class="buy-btn">Acheter</a>
             </div>
         </div>
@@ -146,33 +144,51 @@
         <button class="scroll-btn scroll-left">&#10094;</button>
         <div class="products-container">
             <div class="product">
-                <img src="product1.jpg" alt="Smartphone 2025" loading="lazy">
+                <img src="product1.jpg" alt="Smartphone 2025">
                 <h4>Smartphone 2025</h4>
                 <p>Le smartphone ultime avec toutes les fonctionnalités avancées.</p>
                 <a href="#" class="buy-btn">Acheter</a>
             </div>
             <div class="product">
-                <img src="product2.jpg" alt="Casque Audio Bluetooth" loading="lazy">
+                <img src="product2.jpg" alt="Casque Audio Bluetooth">
                 <h4>Casque Audio Bluetooth</h4>
                 <p>Profitez d'une qualité sonore exceptionnelle avec ce casque Bluetooth.</p>
                 <a href="#" class="buy-btn">Acheter</a>
             </div>
             <div class="product">
-                <img src="product3.jpg" alt="Montre Connectée" loading="lazy">
+                <img src="product3.jpg" alt="Montre Connectée">
                 <h4>Montre Connectée</h4>
-                <p>Suivez vos performances sportives avec cette montre connectée.</p>
+                <p>Suivez vos performances sportives avec cette montre connectée de dernière génération.</p>
                 <a href="#" class="buy-btn">Acheter</a>
             </div>
             <div class="product">
-                <img src="product4.jpg" alt="Laptop Ultra-Rapide" loading="lazy">
+                <img src="product4.jpg" alt="Laptop Ultra-Rapide">
                 <h4>Laptop Ultra-Rapide</h4>
                 <p>Le PC portable pour les professionnels avec une vitesse incomparable.</p>
                 <a href="#" class="buy-btn">Acheter</a>
             </div>
             <div class="product">
-                <img src="product5.jpg" alt="Sac à Main Cuir" loading="lazy">
+                <img src="product5.jpg" alt="Sac à Main Cuir">
                 <h4>Sac à Main Cuir</h4>
                 <p>Un sac à main élégant en cuir véritable pour toutes les occasions.</p>
+                <a href="#" class="buy-btn">Acheter</a>
+            </div>
+            <div class="product">
+                <img src="product6.jpg" alt="Montre de Luxe">
+                <h4>Montre de Luxe</h4>
+                <p>Montre de luxe en acier inoxydable avec bracelet en cuir véritable.</p>
+                <a href="#" class="buy-btn">Acheter</a>
+            </div>
+            <div class="product">
+                <img src="product7.jpg" alt="Chaussures Sport">
+                <h4>Chaussures Sport</h4>
+                <p>Des chaussures de sport ultra confortables pour toutes vos activités.</p>
+                <a href="#" class="buy-btn">Acheter</a>
+            </div>
+            <div class="product">
+                <img src="product8.jpg" alt="Robe Élégante">
+                <h4>Robe Élégante</h4>
+                <p>Une robe élégante et moderne pour vos sorties spéciales.</p>
                 <a href="#" class="buy-btn">Acheter</a>
             </div>
         </div>
@@ -183,9 +199,9 @@
     <section id="about-shop" class="about-section">
         <div class="about-container">
             <div class="about-text">
-                <img src="logo-boutique.png" alt="Logo Boutique" class="about-logo" loading="lazy">
+                <img src="logo-boutique.png" alt="Logo Boutique" class="about-logo">
                 <h2>Nous ne vendons pas seulement des produits</h2>
-                <h3>Nous créons une expérience unique</h3>
+                <h3><span>Nous créons une expérience unique</span></h3>
                 <p>
                     Découvrez une large gamme de produits soigneusement sélectionnés pour vous offrir 
                     la meilleure qualité au meilleur prix. Nous nous engageons à fournir un service 
@@ -214,9 +230,9 @@
         </div>
 
         <div class="customer-gallery">
-            <img src="client1.jpg" alt="Client heureux" class="customer-img img1" loading="lazy">
-            <img src="client2.jpg" alt="Avis client" class="customer-img img2" loading="lazy">
-            <img src="client3.jpg" alt="Unboxing produit" class="customer-img img3" loading="lazy">
+            <img src="client1.jpg" alt="Client heureux" class="customer-img img1">
+            <img src="client2.jpg" alt="Avis client" class="customer-img img2">
+            <img src="client3.jpg" alt="Unboxing produit" class="customer-img img3">
         </div>
     </section>
 
@@ -229,17 +245,17 @@
             <button class="featured-prev">&#10094;</button>
             <div class="featured-product-container">
                 <div class="featured-product" data-name="JOUW TEKST INSIDE" data-price="€34,95" data-image="tshirt1.jpg">
-                    <img src="tshirt1.jpg" alt="JOUW TEKST INSIDE" loading="lazy">
+                    <img src="tshirt1.jpg" alt="JOUW TEKST INSIDE">
                     <p class="featured-product-name">JOUW TEKST INSIDE</p>
                     <p class="featured-product-price">€34,95</p>
                 </div>
                 <div class="featured-product" data-name="DE MANNEN" data-price="€29,95" data-image="tshirt2.jpg">
-                    <img src="tshirt2.jpg" alt="DE MANNEN" loading="lazy">
+                    <img src="tshirt2.jpg" alt="DE MANNEN">
                     <p class="featured-product-name">DE MANNEN</p>
                     <p class="featured-product-price">€29,95</p>
                 </div>
                 <div class="featured-product" data-name="LAAT GAAN JOH" data-price="€29,95" data-image="tshirt3.jpg">
-                    <img src="tshirt3.jpg" alt="LAAT GAAN JOH" loading="lazy">
+                    <img src="tshirt3.jpg" alt="LAAT GAAN JOH">
                     <p class="featured-product-name">LAAT GAAN JOH...</p>
                     <p class="featured-product-price">€29,95</p>
                 </div>
@@ -255,7 +271,6 @@
             <img id="featured-modal-image" src="" alt="Produit">
             <h3 id="featured-modal-title"></h3>
             <p id="featured-modal-price"></p>
-            <button class="btn buy-btn">Ajouter au panier</button>
         </div>
     </div>
 
@@ -265,15 +280,19 @@
         <div class="avis-container">
             <div class="avis">
                 <p>J'étais novice en design, mais Canva Pro m'a permis de créer des visuels professionnels en un clin d'œil. Je recommande vivement !</p>
-                <p><strong>Marie SAWADOGO</strong></p>
+                <p><strong> Marie SAWADOGO.</strong></p>
             </div>
             <div class="avis">
                 <p>J'ai trouvé des raretés introuvables ailleurs sur YGG. La qualité des fichiers est excellente, et le site est très bien organisé.</p>
-                <p><strong>Jean ILBOUDO</strong></p>
+                <p><strong>Jean ILBOUDO.</strong></p>
             </div>
             <div class="avis">
                 <p>J'ai été bluffé par le nombre de chaînes disponibles avec mon abonnement IPTV. Je peux regarder des chaînes du monde entier, et la qualité de l'image est parfaite.</p>
-                <p><strong>Nadia Kambou</strong></p>
+                <p><strong>Nadia Kambou.</strong></p>
+            </div>
+            <div class="avis">
+                <p>La publicité sur Facebook m'a permis de toucher un public beaucoup plus large que je n'aurais jamais pu atteindre avec les méthodes traditionnelles. C'est un excellent moyen de développer sa notoriété.</p>
+                <p><strong>David M., community manager.</strong></p>
             </div>
         </div>
     </section>
@@ -281,26 +300,16 @@
     <!-- SECTION CONTACT -->
     <section id="contact">
         <h2>Contact</h2>
-        <p>Pour toute demande, rejoignez-nous sur WhatsApp !</p>
-        <a href="https://wa.me/XXXXXXXXXX" target="_blank">
-            <img src="whatsapp-icon.png" alt="WhatsApp" loading="lazy">
+        <p>Pour toute demande, rejoins-nous sur WhatsApp !</p>
+        <a href="https://cbl.link/rYZS69E" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp">
         </a>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#">Mentions légales</a>
-                <a href="#">CGV</a>
-                <a href="#">Confidentialité</a>
-            </div>
-            <p>&copy; 2025 e-Boutique. Tous droits réservés.</p>
-        </div>
+        <p>&copy; 2025 e-Boutique. Tous droits réservés.</p>
     </footer>
-
-    <!-- Bouton retour en haut -->
-    <button class="scroll-to-top">↑</button>
 
     <script src="script.js"></script>
 </body>

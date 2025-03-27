@@ -402,3 +402,85 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+// Barre de navigation produits
+document.addEventListener("DOMContentLoaded", function() {
+    const container = document.querySelector(".products-container");
+    if (!container) return;
+
+    // Création de la barre
+    const scrollTrack = document.createElement('div');
+    scrollTrack.className = 'scroll-track';
+    
+    const scrollThumb = document.createElement('div');
+    scrollThumb.className = 'scroll-thumb';
+    
+    scrollTrack.appendChild(scrollThumb);
+    container.parentNode.insertBefore(scrollTrack, container.nextSibling);
+
+    // Mise à jour de la position du thumb
+    function updateThumb() {
+        const scrollableWidth = container.scrollWidth - container.clientWidth;
+        if (scrollableWidth <= 0) {
+            scrollTrack.style.display = 'none';
+            return;
+        }
+        
+        scrollTrack.style.display = 'block';
+        const thumbWidth = Math.max(
+            60, 
+            (container.clientWidth / container.scrollWidth) * scrollTrack.clientWidth
+        );
+        
+        scrollThumb.style.width = `${thumbWidth}px`;
+        const thumbPosition = (container.scrollLeft / scrollableWidth) * 
+                            (scrollTrack.clientWidth - thumbWidth);
+        scrollThumb.style.left = `${thumbPosition}px`;
+    }
+
+    // Gestion du drag
+    let isDragging = false;
+    let startX, startLeft;
+
+    scrollThumb.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startLeft = parseFloat(scrollThumb.style.left || 0);
+        e.preventDefault();
+    });
+
+    scrollTrack.addEventListener('click', (e) => {
+        const clickX = e.clientX - scrollTrack.getBoundingClientRect().left;
+        const thumbWidth = parseFloat(scrollThumb.style.width);
+        const newLeft = Math.min(
+            Math.max(0, clickX - thumbWidth/2),
+            scrollTrack.clientWidth - thumbWidth
+        );
+        
+        const scrollableWidth = container.scrollWidth - container.clientWidth;
+        container.scrollLeft = (newLeft / (scrollTrack.clientWidth - thumbWidth)) * scrollableWidth;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        
+        const dx = e.clientX - startX;
+        const thumbWidth = parseFloat(scrollThumb.style.width);
+        const newLeft = Math.min(
+            Math.max(0, startLeft + dx),
+            scrollTrack.clientWidth - thumbWidth
+        );
+        
+        const scrollableWidth = container.scrollWidth - container.clientWidth;
+        container.scrollLeft = (newLeft / (scrollTrack.clientWidth - thumbWidth)) * scrollableWidth;
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    // Écouteurs
+    container.addEventListener('scroll', updateThumb);
+    window.addEventListener('resize', updateThumb);
+    updateThumb();
+});

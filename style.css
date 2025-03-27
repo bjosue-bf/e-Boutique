@@ -337,7 +337,7 @@ header {
     }
     
     .banner-video {
-        display: none; /* Vidéo désactivée sur mobile */
+        display: block; /* Vidéo désactivée sur mobile */
     }
     
     .cta-buttons {

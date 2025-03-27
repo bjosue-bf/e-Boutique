@@ -526,33 +526,15 @@ header {
     box-shadow: 0 5px 15px rgba(42, 157, 143, 0.4);
 }
 
-/* SECTION NOS PRODUITS */
-/* Products Section */
+/* ========== SECTION PRODUITS ========== */
 .products-section {
     padding: 80px 20px;
     background-color: #f9f9f9;
     position: relative;
     overflow: hidden;
-}
-
-.products-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    color: #333;
-    text-align: center;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-.products-section h2::after {
-    content: '';
-    position: absolute;
-    width: 80px;
-    height: 3px;
-    background: #128bf6;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    /* Nouveauté : Activation du swipe tactile */
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
 }
 
 .products-scroll-container {
@@ -560,6 +542,8 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
+    /* Correction : overflow visible au lieu de hidden */
+    overflow: visible;
 }
 
 .products-container {
@@ -567,21 +551,36 @@ header {
     overflow-x: auto;
     scroll-behavior: smooth;
     gap: 25px;
-    padding: 20px 10px;
+    padding: 20px 10px 30px; /* Ajout de 30px en bas */
     scrollbar-width: none;
     -ms-overflow-style: none;
     scroll-snap-type: x mandatory;
-    /* Ajoutez ces propriétés */
     width: 100%;
     margin: 0;
     flex-wrap: nowrap;
-    align-items: stretch; /* Pour uniformiser la hauteur */
+    align-items: stretch;
+    /* Nouveautés pour le drag/swipe */
+    cursor: grab;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
-.products-container::-webkit-scrollbar {
+/* Indicateur de swipe (mobile seulement) */
+.products-container::after {
+    content: "← Balayer →";
     display: none;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #666;
+    font-size: 0.8em;
+    padding: 5px 10px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 15px;
 }
 
+/* Styles des produits (inchangés) */
 .product {
     scroll-snap-align: start;
     background-color: white;
@@ -680,7 +679,6 @@ header {
     .products-scroll-container {
         padding: 0 30px;
     }
-    
     .product {
         min-width: 240px;
         max-width: 240px;
@@ -691,15 +689,11 @@ header {
     .products-section {
         padding: 60px 15px;
     }
-    
     .products-scroll-container {
         padding: 0 20px;
     }
-    
-    .scroll-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 16px;
+    .products-container::after {
+        display: block; /* Affiche l'indication de swipe */
     }
 }
 
@@ -707,13 +701,11 @@ header {
     .products-section h2 {
         font-size: 2em;
     }
-    
     .product {
         min-width: 220px;
         max-width: 220px;
         padding: 15px;
     }
-    
     .product img {
         height: 150px;
     }

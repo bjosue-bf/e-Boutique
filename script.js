@@ -177,65 +177,69 @@ function playVideoOnScroll() {
 window.addEventListener('scroll', playVideoOnScroll);
 
 // Slider produits
-// Nouveau code pour le swipe (à ajouter vers la fin du fichier)
+// Remplacez le code de swipe par ceci :
 document.addEventListener("DOMContentLoaded", function() {
-    const setupSwipe = (containerSelector) => {
-        const container = document.querySelector(containerSelector);
+    const containers = [
+        ".products-container", 
+        ".featured-product-container"
+    ];
+
+    containers.forEach(selector => {
+        const container = document.querySelector(selector);
         if (!container) return;
 
-        let isDown = false;
+        // Crée la barre de scroll
+        const scrollTrack = document.createElement('div');
+        scrollTrack.className = 'scroll-track';
+        
+        const scrollThumb = document.createElement('div');
+        scrollThumb.className = 'scroll-thumb';
+        
+        scrollTrack.appendChild(scrollThumb);
+        container.parentNode.insertBefore(scrollTrack, container.nextSibling);
+
+        // Met à jour la position du thumb
+        function updateThumb() {
+            const scrollableWidth = container.scrollWidth - container.clientWidth;
+            const thumbPosition = (container.scrollLeft / scrollableWidth) * 
+                                (scrollTrack.clientWidth - scrollThumb.clientWidth);
+            scrollThumb.style.left = `${thumbPosition}px`;
+        }
+
+        // Gestion du drag sur le thumb
+        let isDragging = false;
         let startX;
-        let scrollLeft;
+        let startLeft;
 
-        container.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startX = e.pageX - container.offsetLeft;
-            scrollLeft = container.scrollLeft;
-            container.style.cursor = 'grabbing';
-            container.style.scrollBehavior = 'auto';
-        });
-
-        container.addEventListener('mouseleave', () => {
-            isDown = false;
-            container.style.cursor = 'grab';
-        });
-
-        container.addEventListener('mouseup', () => {
-            isDown = false;
-            container.style.cursor = 'grab';
-            container.style.scrollBehavior = 'smooth';
-        });
-
-        container.addEventListener('mousemove', (e) => {
-            if(!isDown) return;
+        scrollThumb.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startLeft = parseFloat(scrollThumb.style.left || 0);
             e.preventDefault();
-            const x = e.pageX - container.offsetLeft;
-            const walk = (x - startX) * 2;
-            container.scrollLeft = scrollLeft - walk;
         });
 
-        // Version tactile pour mobiles
-        container.addEventListener('touchstart', (e) => {
-            isDown = true;
-            startX = e.touches[0].pageX - container.offsetLeft;
-            scrollLeft = container.scrollLeft;
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            const dx = e.clientX - startX;
+            const newLeft = Math.min(
+                Math.max(0, startLeft + dx),
+                scrollTrack.clientWidth - scrollThumb.clientWidth
+            );
+            
+            const scrollableWidth = container.scrollWidth - container.clientWidth;
+            container.scrollLeft = (newLeft / (scrollTrack.clientWidth - scrollThumb.clientWidth)) * scrollableWidth;
         });
 
-        container.addEventListener('touchend', () => {
-            isDown = false;
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
         });
 
-        container.addEventListener('touchmove', (e) => {
-            if(!isDown) return;
-            const x = e.touches[0].pageX - container.offsetLeft;
-            const walk = (x - startX) * 2;
-            container.scrollLeft = scrollLeft - walk;
-        });
-    };
-
-    // Initialisation pour les deux conteneurs
-    setupSwipe(".products-container");
-    setupSwipe(".featured-product-container");
+        // Met à jour lors du scroll
+        container.addEventListener('scroll', updateThumb);
+        window.addEventListener('resize', updateThumb);
+        updateThumb();
+    });
 });
 
 // Animation section about

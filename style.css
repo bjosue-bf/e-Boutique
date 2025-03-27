@@ -675,7 +675,6 @@ header {
     .scroll-thumb {
         width: 80px;
     }
-}
 
 @media (max-width: 576px) {
     .products-section h2 {
@@ -698,7 +697,6 @@ header {
     
     .scroll-thumb {
         width: 60px;
-    }
 }
 
 /* SECTION ABOUT */

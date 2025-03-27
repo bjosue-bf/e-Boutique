@@ -236,7 +236,7 @@ header {
     color: white;
     text-align: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #1e6ce0 0%, #3a05e7 100%); /* Fallback */
+    background: linear-gradient(135deg, #1e6ce0 0%, #3a05e7 100%);
 }
 
 .banner-video {
@@ -329,10 +329,15 @@ header {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
+/* Responsive Mobile */
 @media (max-width: 768px) {
     .home-banner {
         min-height: 500px;
+        background: linear-gradient(135deg, #1e6ce0 0%, #3a05e7 100%);
+    }
+    
+    .banner-video {
+        display: none; /* Vidéo désactivée sur mobile */
     }
     
     .cta-buttons {
@@ -343,12 +348,6 @@ header {
     .cta-btn {
         width: 100%;
         padding: 12px 20px;
-    }
-    
- /* Supprimez simplement le commentaire et gardez le reste inchangé */
-@media (max-width: 768px) {
-    .banner-video {
-        display: block;
     }
 }
 /* CANVA PRO SECTION */

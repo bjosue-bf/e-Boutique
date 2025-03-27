@@ -1,0 +1,90 @@
+<!-- portfolio-graphiste1.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Joshua - Graphiste</title>
+    <!-- Inclure votre CSS existant -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header du site (identique à vos autres pages) -->
+    
+    <main class="portfolio-container">
+        <div class="portfolio-header">
+            <h1>Portfolio de Joshua Ouedraogo</h1>
+            <p class="subtitle">Directeur Artistique • 8 ans d'expérience</p>
+            <a href="contact.html" class="portfolio-cta">Contactez Josue</a>
+        </div>
+
+        <!-- Section Galerie -->
+        <section class="portfolio-gallery">
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="print">Print</button>
+                <button class="filter-btn" data-filter="digital">Digital</button>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Projet 1 -->
+                <div class="gallery-item branding" data-category="branding">
+                    <img src="assets/portfolio/graphiste1/projet1.jpg" alt="Identité visuelle Marque X">
+                    <div class="item-overlay">
+                        <h3>Identité Visuelle</h3>
+                        <p>Marque de cosmétiques bio</p>
+                        <button class="view-btn" data-src="assets/portfolio/graphiste1/projet1.jpg">Voir +</button>
+                    </div>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="gallery-item digital" data-category="digital">
+                    <video controls poster="assets/portfolio/graphiste1/video-thumb1.jpg">
+                        <source src="assets/portfolio/graphiste1/animation1.mp4" type="video/mp4">
+                    </video>
+                    <div class="item-overlay">
+                        <h3>Animation Web</h3>
+                        <p>Campagne publicitaire</p>
+                        <button class="view-btn" data-src="assets/portfolio/graphiste1/animation1.mp4" data-type="video">Voir +</button>
+                    </div>
+                </div>
+
+                <!-- Ajouter 10+ autres projets -->
+            </div>
+        </section>
+
+        <!-- Section Tarifs -->
+        <section class="pricing-section">
+            <h2>Mes Tarifs</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Logo Basic</h3>
+                    <p class="price">À partir de 490€</p>
+                    <ul>
+                        <li>3 concepts initiaux</li>
+                        <li>2 révisions</li>
+                        <li>Fichiers vectoriels</li>
+                    </ul>
+                </div>
+                <!-- Ajouter d'autres offres -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox pour visualisation -->
+    <div class="lightbox">
+        <span class="close-btn">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="">
+            <video id="lightbox-video" controls style="display:none">
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- Footer du site (identique à vos autres pages) -->
+    
+    <script src="portfolio.js"></script>
+</body>
+</html>

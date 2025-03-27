@@ -177,39 +177,65 @@ function playVideoOnScroll() {
 window.addEventListener('scroll', playVideoOnScroll);
 
 // Slider produits
+// Nouveau code pour le swipe (à ajouter vers la fin du fichier)
 document.addEventListener("DOMContentLoaded", function() {
-    const setupSlider = (containerSelector, prevBtnSelector, nextBtnSelector) => {
+    const setupSwipe = (containerSelector) => {
         const container = document.querySelector(containerSelector);
-        const prevBtn = document.querySelector(prevBtnSelector);
-        const nextBtn = document.querySelector(nextBtnSelector);
+        if (!container) return;
 
-        if (!container || !prevBtn || !nextBtn) return;
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-        const updateButtons = () => {
-            prevBtn.disabled = container.scrollLeft <= 0;
-            nextBtn.disabled = container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
-            
-            prevBtn.style.opacity = prevBtn.disabled ? "0.5" : "1";
-            nextBtn.style.opacity = nextBtn.disabled ? "0.5" : "1";
-            prevBtn.style.cursor = prevBtn.disabled ? "not-allowed" : "pointer";
-            nextBtn.style.cursor = nextBtn.disabled ? "not-allowed" : "pointer";
-        };
-
-        prevBtn.addEventListener("click", () => {
-            container.scrollBy({ left: -300, behavior: "smooth" });
+        container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+            container.style.cursor = 'grabbing';
+            container.style.scrollBehavior = 'auto';
         });
 
-        nextBtn.addEventListener("click", () => {
-            container.scrollBy({ left: 300, behavior: "smooth" });
+        container.addEventListener('mouseleave', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
         });
 
-        container.addEventListener("scroll", updateButtons);
-        updateButtons();
+        container.addEventListener('mouseup', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
+            container.style.scrollBehavior = 'smooth';
+        });
+
+        container.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        });
+
+        // Version tactile pour mobiles
+        container.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        });
+
+        container.addEventListener('touchend', () => {
+            isDown = false;
+        });
+
+        container.addEventListener('touchmove', (e) => {
+            if(!isDown) return;
+            const x = e.touches[0].pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        });
     };
 
-    // Initialisation des sliders
-    setupSlider(".products-container", ".scroll-left", ".scroll-right");
-    setupSlider(".featured-product-container", ".featured-prev", ".featured-next");
+    // Initialisation pour les deux conteneurs
+    setupSwipe(".products-container");
+    setupSwipe(".featured-product-container");
 });
 
 // Animation section about

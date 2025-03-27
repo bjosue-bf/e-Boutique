@@ -45,15 +45,28 @@
         </div>
     </header>
 
-    <!-- SECTION ACCUEIL -->
-    <section id="accueil" class="home-banner">
+<!-- SECTION ACCUEIL AVEC VIDEO -->
+<section id="accueil" class="home-banner">
+    <!-- Vidéo en arrière-plan -->
+    <video autoplay muted loop playsinline class="banner-video">
+        <source src="assets/videos/banner-video.mp4" type="video/mp4">
+        <!-- Fallback image si vidéo non supportée -->
+        <img src="assets/images/banner-fallback.jpg" alt="Bannière boutique">
+    </video>
+    
+    <!-- Overlay pour meilleure lisibilité -->
+    <div class="banner-overlay"></div>
+    
+    <!-- Contenu texte -->
+    <div class="banner-content">
         <h1>Bienvenue dans notre Boutique en Ligne</h1>
         <p>Découvrez des articles exclusifs et profitez de nos offres incroyables !</p>
         <div class="cta-buttons">
             <a href="#canva-pro" class="cta-btn">Voir Canva Pro</a>
             <a href="#produits" class="cta-btn secondary">Nos Produits</a>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- SECTION CANVA PRO -->
     <section id="canva-pro">

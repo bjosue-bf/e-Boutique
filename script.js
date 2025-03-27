@@ -176,16 +176,10 @@ function playVideoOnScroll() {
 
 window.addEventListener('scroll', playVideoOnScroll);
 
-// Slider produits
-// Remplacez le code de swipe par ceci :
+/* ========== NOUVELLE IMPLÉMENTATION BARRE DE NAVIGATION ========== */
 document.addEventListener("DOMContentLoaded", function() {
-    const containers = [
-        ".products-container", 
-        ".featured-product-container"
-    ];
-
-    containers.forEach(selector => {
-        const container = document.querySelector(selector);
+    const setupScrollbar = (containerSelector) => {
+        const container = document.querySelector(containerSelector);
         if (!container) return;
 
         // Crée la barre de scroll
@@ -201,15 +195,26 @@ document.addEventListener("DOMContentLoaded", function() {
         // Met à jour la position du thumb
         function updateThumb() {
             const scrollableWidth = container.scrollWidth - container.clientWidth;
+            if (scrollableWidth <= 0) {
+                scrollTrack.style.display = 'none';
+                return;
+            }
+            
+            scrollTrack.style.display = 'block';
+            const thumbWidth = Math.max(
+                60, 
+                (container.clientWidth / container.scrollWidth) * scrollTrack.clientWidth
+            );
+            
+            scrollThumb.style.width = `${thumbWidth}px`;
             const thumbPosition = (container.scrollLeft / scrollableWidth) * 
-                                (scrollTrack.clientWidth - scrollThumb.clientWidth);
+                                (scrollTrack.clientWidth - thumbWidth);
             scrollThumb.style.left = `${thumbPosition}px`;
         }
 
-        // Gestion du drag sur le thumb
+        // Gestion du drag
         let isDragging = false;
-        let startX;
-        let startLeft;
+        let startX, startLeft;
 
         scrollThumb.addEventListener('mousedown', (e) => {
             isDragging = true;
@@ -218,29 +223,47 @@ document.addEventListener("DOMContentLoaded", function() {
             e.preventDefault();
         });
 
+        scrollTrack.addEventListener('click', (e) => {
+            const clickX = e.clientX - scrollTrack.getBoundingClientRect().left;
+            const thumbWidth = parseFloat(scrollThumb.style.width);
+            const newLeft = Math.min(
+                Math.max(0, clickX - thumbWidth/2),
+                scrollTrack.clientWidth - thumbWidth
+            );
+            
+            const scrollableWidth = container.scrollWidth - container.clientWidth;
+            container.scrollLeft = (newLeft / (scrollTrack.clientWidth - thumbWidth)) * scrollableWidth;
+        });
+
         document.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
             
             const dx = e.clientX - startX;
+            const thumbWidth = parseFloat(scrollThumb.style.width);
             const newLeft = Math.min(
                 Math.max(0, startLeft + dx),
-                scrollTrack.clientWidth - scrollThumb.clientWidth
+                scrollTrack.clientWidth - thumbWidth
             );
             
             const scrollableWidth = container.scrollWidth - container.clientWidth;
-            container.scrollLeft = (newLeft / (scrollTrack.clientWidth - scrollThumb.clientWidth)) * scrollableWidth;
+            container.scrollLeft = (newLeft / (scrollTrack.clientWidth - thumbWidth)) * scrollableWidth;
         });
 
         document.addEventListener('mouseup', () => {
             isDragging = false;
         });
 
-        // Met à jour lors du scroll
+        // Écouteurs
         container.addEventListener('scroll', updateThumb);
         window.addEventListener('resize', updateThumb);
         updateThumb();
-    });
+    };
+
+    // Initialisation pour les conteneurs produits
+    setupScrollbar(".products-container");
+    setupScrollbar(".featured-product-container");
 });
+/* ========== FIN NOUVELLE IMPLÉMENTATION ========== */
 
 // Animation section about
 document.addEventListener("DOMContentLoaded", function() {
@@ -386,7 +409,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if (contactForm) {
         contactForm.addEventListener("submit", function(e) {
             e.preventDefault();
-            // Ici vous pourriez ajouter un vrai traitement du formulaire
             alert("Merci pour votre message ! Nous vous contacterons bientôt.");
             this.reset();
         });
@@ -396,91 +418,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if (newsletterForm) {
         newsletterForm.addEventListener("submit", function(e) {
             e.preventDefault();
-            // Ici vous pourriez ajouter un vrai traitement du formulaire
             alert("Merci pour votre inscription à notre newsletter !");
             this.reset();
         });
     }
-});
-
-// Barre de navigation produits
-document.addEventListener("DOMContentLoaded", function() {
-    const container = document.querySelector(".products-container");
-    if (!container) return;
-
-    // Création de la barre
-    const scrollTrack = document.createElement('div');
-    scrollTrack.className = 'scroll-track';
-    
-    const scrollThumb = document.createElement('div');
-    scrollThumb.className = 'scroll-thumb';
-    
-    scrollTrack.appendChild(scrollThumb);
-    container.parentNode.insertBefore(scrollTrack, container.nextSibling);
-
-    // Mise à jour de la position du thumb
-    function updateThumb() {
-        const scrollableWidth = container.scrollWidth - container.clientWidth;
-        if (scrollableWidth <= 0) {
-            scrollTrack.style.display = 'none';
-            return;
-        }
-        
-        scrollTrack.style.display = 'block';
-        const thumbWidth = Math.max(
-            60, 
-            (container.clientWidth / container.scrollWidth) * scrollTrack.clientWidth
-        );
-        
-        scrollThumb.style.width = `${thumbWidth}px`;
-        const thumbPosition = (container.scrollLeft / scrollableWidth) * 
-                            (scrollTrack.clientWidth - thumbWidth);
-        scrollThumb.style.left = `${thumbPosition}px`;
-    }
-
-    // Gestion du drag
-    let isDragging = false;
-    let startX, startLeft;
-
-    scrollThumb.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.clientX;
-        startLeft = parseFloat(scrollThumb.style.left || 0);
-        e.preventDefault();
-    });
-
-    scrollTrack.addEventListener('click', (e) => {
-        const clickX = e.clientX - scrollTrack.getBoundingClientRect().left;
-        const thumbWidth = parseFloat(scrollThumb.style.width);
-        const newLeft = Math.min(
-            Math.max(0, clickX - thumbWidth/2),
-            scrollTrack.clientWidth - thumbWidth
-        );
-        
-        const scrollableWidth = container.scrollWidth - container.clientWidth;
-        container.scrollLeft = (newLeft / (scrollTrack.clientWidth - thumbWidth)) * scrollableWidth;
-    });
-
-    document.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        
-        const dx = e.clientX - startX;
-        const thumbWidth = parseFloat(scrollThumb.style.width);
-        const newLeft = Math.min(
-            Math.max(0, startLeft + dx),
-            scrollTrack.clientWidth - thumbWidth
-        );
-        
-        const scrollableWidth = container.scrollWidth - container.clientWidth;
-        container.scrollLeft = (newLeft / (scrollTrack.clientWidth - thumbWidth)) * scrollableWidth;
-    });
-
-    document.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
-
-    // Écouteurs
-    container.addEventListener('scroll', updateThumb);
-    window.addEventListener('resize', updateThumb);
-    updateThumb();
 });

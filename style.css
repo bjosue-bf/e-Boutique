@@ -571,6 +571,11 @@ header {
     scrollbar-width: none;
     -ms-overflow-style: none;
     scroll-snap-type: x mandatory;
+    /* Ajoutez ces propriétés */
+    width: 100%;
+    margin: 0;
+    flex-wrap: nowrap;
+    align-items: stretch; /* Pour uniformiser la hauteur */
 }
 
 .products-container::-webkit-scrollbar {

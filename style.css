@@ -742,10 +742,54 @@ header {
 }
 
 /* Responsive */
-@media (max-width: 992px) {
-    .products-scroll-container {
-        padding: 0 30px 35px;
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    body {
+        font-size: 16px;
     }
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    header {
+        text-align: center;
+        padding: 10px;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
     
     .product {
         min-width: 240px;
@@ -763,10 +807,54 @@ header {
     }
 }
 
-@media (max-width: 768px) {
-    .products-section {
-        padding: 60px 15px;
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    body {
+        font-size: 16px;
     }
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    header {
+        text-align: center;
+        padding: 10px;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
     
     .products-scroll-container {
         padding: 0 20px 30px;
@@ -796,10 +884,54 @@ header {
     }
 }
 
-@media (max-width: 576px) {
-    .products-section h2 {
-        font-size: 2em;
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    body {
+        font-size: 16px;
     }
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    header {
+        text-align: center;
+        padding: 10px;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
     
     .product {
         min-width: 220px;
@@ -3041,10 +3173,54 @@ footer {
 }
 
 /* Responsive Styles */
-@media (max-width: 1200px) {
-    .hero-content h1 {
-        font-size: 3rem;
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    body {
+        font-size: 16px;
     }
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    header {
+        text-align: center;
+        padding: 10px;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
     
     .section-header h2 {
         font-size: 2.5rem;
@@ -3055,10 +3231,54 @@ footer {
     }
 }
 
-@media (max-width: 992px) {
-    .portfolio-header h1 {
-        font-size: 3rem;
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    body {
+        font-size: 16px;
     }
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    header {
+        text-align: center;
+        padding: 10px;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
     
     .modal-body {
         flex-direction: column;
@@ -3077,10 +3297,54 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
-    .hamburger {
-        display: block;
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    body {
+        font-size: 16px;
     }
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    header {
+        text-align: center;
+        padding: 10px;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
     
     #menu-list {
         position: fixed;
@@ -3149,10 +3413,54 @@ footer {
     }
 }
 
-@media (max-width: 576px) {
-    .hero-content h1 {
-        font-size: 2rem;
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    body {
+        font-size: 16px;
     }
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    header {
+        text-align: center;
+        padding: 10px;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
     
     .hero-content h2 {
         font-size: 1.5rem;

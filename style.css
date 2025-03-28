@@ -2482,201 +2482,306 @@ footer {
     color: #666;
 }
 
-/* ========== STYLES GÉNÉRAUX PORTFOLIO ========== */
-/* ========== STYLES PORTFOLIO ========== */
-.portfolio-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
+/* ========== SECTION PROFESSIONNELS ========== */
+.pros-section {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
+    position: relative;
 }
 
-.portfolio-header {
+.pros-section .section-header {
     text-align: center;
     margin-bottom: 60px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #eee;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.portfolio-header h1 {
-    font-size: 2.5rem;
+.pros-section .section-header h2 {
+    font-size: 2.8rem;
     color: #3a05e7;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    line-height: 1.3;
 }
 
-.subtitle {
+.pros-section .section-header p {
     font-size: 1.2rem;
     color: #666;
-    margin-bottom: 30px;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-.portfolio-cta {
+.pros-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 60px 0 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9c46a;
     display: inline-block;
-    background: #3a05e7;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    clear: both;
 }
 
-.portfolio-cta:hover {
-    background: #2a04b5;
-    transform: translateY(-3px);
-}
-
-/* Galerie */
-.gallery-filter {
+.pro-card {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 40px;
-}
-
-.filter-btn {
-    padding: 8px 20px;
     background: white;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.filter-btn.active, .filter-btn:hover {
-    background: #3a05e7;
-    color: white;
-    border-color: #3a05e7;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    margin-bottom: 60px;
-}
-
-.gallery-item {
-    position: relative;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    aspect-ratio: 1/1;
+    margin-bottom: 40px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
 }
 
-.gallery-item img, .gallery-item video {
+.pro-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.pro-image {
+    flex: 0 0 45%;
+    position: relative;
+    min-height: 350px;
+}
+
+.pro-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    transition: transform 0.5s ease;
 }
 
-.item-overlay {
-    position: absolute;
-    bottom: -100%;
-    left: 0;
-    right: 0;
-    background: rgba(58, 5, 231, 0.9);
-    color: white;
-    padding: 20px;
-    transition: bottom 0.3s ease;
+.pro-card:hover .pro-image img {
+    transform: scale(1.03);
 }
 
-.gallery-item:hover .item-overlay {
-    bottom: 0;
-}
-
-.view-btn {
-    background: white;
-    color: #3a05e7;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    margin-top: 10px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-/* Lightbox */
-.lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-}
-
-.lightbox-content {
-    max-width: 90%;
-    max-height: 90%;
+.pro-content {
+    flex: 1;
+    padding: 40px;
     position: relative;
 }
 
-.close-btn {
+.pro-badge {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: white;
-    font-size: 40px;
-    cursor: pointer;
+    background: #e9c46a;
+    color: #264653;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 3px 10px rgba(233, 196, 106, 0.3);
+    z-index: 3;
 }
 
-#lightbox-image, #lightbox-video {
-    max-height: 80vh;
-    max-width: 100%;
-    border-radius: 5px;
+.pro-name {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 8px;
+    font-weight: 700;
 }
 
-/* Tarifs */
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+.pro-title {
+    font-size: 1.2rem;
+    color: #3a05e7;
+    margin-bottom: 25px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
 }
 
-.pricing-card {
-    background: white;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+.pro-title:after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+    margin-left: 20px;
+}
+
+.pro-desc {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+}
+
+.pro-contacts {
+    margin-bottom: 35px;
+}
+
+.pro-contacts p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.pro-contacts i {
+    margin-right: 12px;
+    color: #3a05e7;
+    width: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.pro-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.pro-btn {
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    min-width: 180px;
     text-align: center;
 }
 
-.pricing-card h3 {
+.pro-btn i {
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+.pro-btn.primary {
+    background: #3a05e7;
+    color: white;
+    box-shadow: 0 4px 15px rgba(58, 5, 231, 0.2);
+}
+
+.pro-btn.secondary {
+    border: 2px solid #3a05e7;
     color: #3a05e7;
-    margin-bottom: 15px;
+    background: white;
 }
 
-.price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
+.pro-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(0,0,0,0.12);
 }
 
-.pricing-card ul {
-    text-align: left;
-    list-style: none;
-    padding: 0;
+.pro-btn.primary:hover {
+    background: #2a04b5;
+    box-shadow: 0 7px 20px rgba(42, 4, 181, 0.3);
 }
 
-.pricing-card li {
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 25px;
+.pro-btn.secondary:hover {
+    background: #f8f7ff;
+    border-color: #2a04b5;
+    color: #2a04b5;
 }
 
-.pricing-card li:before {
-    content: "✓";
-    color: #e9c46a;
-    position: absolute;
-    left: 0;
-    font-weight: bold;
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1200px) {
+    .pros-container {
+        padding: 0 20px;
+    }
 }
+
+@media (max-width: 992px) {
+    .pro-card {
+        flex-direction: column;
+    }
+    
+    .pro-image {
+        flex: 0 0 300px;
+    }
+    
+    .pro-content {
+        padding: 30px;
+    }
+    
+    .pro-title:after {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .pros-section {
+        padding: 60px 15px;
+    }
+    
+    .pros-section .section-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .pro-name {
+        font-size: 1.7rem;
+    }
+    
+    .pro-title {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+    
+    .pro-desc {
+        font-size: 1rem;
+    }
+    
+    .pro-actions {
+        flex-direction: column;
+    }
+    
+    .pro-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .pro-image {
+        flex: 0 0 250px;
+        min-height: 250px;
+    }
+    
+    .pro-content {
+        padding: 25px;
+    }
+    
+    .pro-badge {
+        top: 15px;
+        right: 15px;
+        font-size: 0.75rem;
+        padding: 4px 12px;
+    }
+    
+    .category-title {
+        font-size: 1.5rem;
+        margin: 40px 0 20px;
+    }
+}
+
+/* Animation pour le chargement */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pro-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Délais d'animation pour chaque carte */
+.pro-card:nth-child(1) { animation-delay: 0.1s; }
+.pro-card:nth-child(2) { animation-delay: 0.2s; }
+.pro-card:nth-child(3) { animation-delay: 0.3s; }
+.pro-card:nth-child(4) { animation-delay: 0.4s; }
+/* Continuez jusqu'à 25 si nécessaire */

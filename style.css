@@ -318,38 +318,6 @@ header {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive Mobile */
-@media (max-width: 768px) {
-    .home-banner {
-        min-height: 500px;
-        background: linear-gradient(135deg, #1e6ce0 0%, #3a05e7 100%);
-    }
-    
-    .banner-video {
-        display: block; /* Vidéo désactivée sur mobile */
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .cta-btn {
-        width: 100%;
-        padding: 12px 20px;
-    }
-}
 /* CANVA PRO SECTION */
 #canva-pro {
     padding: 80px 20px;
@@ -857,6 +825,7 @@ header {
         font-size: 14px;
     }
 }
+
 /* SECTION ABOUT */
 .about-section {
     background: linear-gradient(135deg, #002f6c 0%, #001a3a 100%);
@@ -1142,75 +1111,6 @@ header {
     right: 0;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-    .featured-product-gallery {
-        padding: 60px 20px;
-    }
-    
-    .featured-product-slider {
-        padding: 0 30px;
-    }
-    
-    .featured-product {
-        min-width: 240px;
-        max-width: 240px;
-    }
-    
-    .featured-product img {
-        height: 200px;
-    }
-}
-
-@media (max-width: 768px) {
-    .featured-header {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 20px;
-    }
-    
-    .featured-product-title {
-        margin-bottom: 15px;
-    }
-    
-    .featured-product-slider {
-        padding: 0 25px;
-    }
-    
-    .featured-prev, .featured-next {
-        width: 35px;
-        height: 35px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 576px) {
-    .featured-product-gallery {
-        padding: 50px 15px;
-    }
-    
-    .featured-product-title {
-        font-size: 1.8em;
-    }
-    
-    .featured-product {
-        min-width: 220px;
-        max-width: 220px;
-        padding: 15px;
-    }
-    
-    .featured-product img {
-        height: 180px;
-    }
-    
-    .featured-product-name {
-        font-size: 1em;
-    }
-    
-    .featured-product-price {
-        font-size: 1.1em;
-    }
-}
 /* MODAL PRODUIT */
 .featured-modal {
     display: none;
@@ -1583,203 +1483,6 @@ footer {
     font-size: 0.9em;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes fadeInUp {
-    from { 
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to { 
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideIn {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-20px); }
-    60% { transform: translateY(-10px); }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-@keyframes modalFadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* Responsive Styles */
-@media (max-width: 992px) {
-    .about-container {
-        flex-direction: column;
-    }
-    
-    .about-text {
-        padding-right: 0;
-        margin-bottom: 40px;
-        text-align: center;
-    }
-    
-    .about-stats {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    
-    .stat {
-        flex: 1;
-        min-width: 200px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
-    
-    #menu-list {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        background-color: #3a05e7;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: right 0.3s ease;
-        z-index: 1000;
-    }
-    
-    #menu-list.show {
-        right: 0;
-    }
-    
-    #menu-list ul {
-        flex-direction: column;
-        margin-bottom: 30px;
-    }
-    
-    #menu-list ul li {
-        margin: 15px 0;
-    }
-    
-    .search-bar {
-        margin-top: 20px;
-    }
-    
-    .home-banner h1 {
-        font-size: 2.2em;
-    }
-    
-    .home-banner p {
-        font-size: 1.2em;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .featured-product {
-        min-width: 220px;
-    }
-    
-    .scroll-btn, .featured-prev, .featured-next {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-    
-    .scroll-left {
-        left: -15px;
-    }
-    
-    .scroll-right {
-        right: -15px;
-    }
-    
-    .featured-prev {
-        left: -15px;
-    }
-    
-    .featured-next {
-        right: -15px;
-    }
-    
-    .contact-container {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .contact-info, .contact-form {
-        text-align: center;
-    }
-    
-    .contact-info p {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .home-banner h1 {
-        font-size: 1.8em;
-    }
-    
-    .home-banner p {
-        font-size: 1em;
-    }
-    
-    .cta-btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-    
-    .canva-block {
-        padding: 25px;
-    }
-    
-    .benefits-list li {
-        font-size: 1em;
-        padding-left: 30px;
-    }
-    
-    .pp-B5JXRGFYCRD6G {
-        font-size: 1em;
-        padding: 12px 20px;
-    }
-    
-    .stat {
-        min-width: 100%;
-    }
-    
-    .newsletter form {
-        flex-direction: column;
-    }
-    
-    .newsletter input {
-        border-radius: 30px;
-        margin-bottom: 10px;
-    }
-    
-    .newsletter button {
-        border-radius: 30px;
-    }
-}
-
 /* STYLES COMPLETS POUR 20 PRODUITS */
 .deals-section {
     padding: 80px 20px;
@@ -1911,35 +1614,6 @@ footer {
     transform: translateY(-2px);
 }
 
-/* RESPONSIVE */
-@media (max-width: 992px) {
-    .category-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    .section-header h2 {
-        font-size: 2.2rem;
-    }
-    
-    .deal-content h4 {
-        min-height: auto;
-    }
-}
-
-@media (max-width: 576px) {
-    .category-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .deal-card {
-        max-width: 350px;
-        margin: 0 auto;
-    }
-}
-
-
 /* ========== SECTION PROFESSIONNELS ========== */
 .pros-section {
     padding: 80px 20px;
@@ -1972,16 +1646,6 @@ footer {
 .pros-container {
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.category-title {
-    font-size: 1.8rem;
-    color: #333;
-    margin: 60px 0 30px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #e9c46a;
-    display: inline-block;
-    clear: both;
 }
 
 .pro-card {
@@ -2141,109 +1805,6 @@ footer {
     border-color: #2a04b5;
     color: #2a04b5;
 }
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 1200px) {
-    .pros-container {
-        padding: 0 20px;
-    }
-}
-
-@media (max-width: 992px) {
-    .pro-card {
-        flex-direction: column;
-    }
-    
-    .pro-image {
-        flex: 0 0 300px;
-    }
-    
-    .pro-content {
-        padding: 30px;
-    }
-    
-    .pro-title:after {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .pros-section {
-        padding: 60px 15px;
-    }
-    
-    .pros-section .section-header h2 {
-        font-size: 2.2rem;
-    }
-    
-    .pro-name {
-        font-size: 1.7rem;
-    }
-    
-    .pro-title {
-        font-size: 1.1rem;
-        margin-bottom: 20px;
-    }
-    
-    .pro-desc {
-        font-size: 1rem;
-    }
-    
-    .pro-actions {
-        flex-direction: column;
-    }
-    
-    .pro-btn {
-        width: 100%;
-    }
-}
-
-@media (max-width: 576px) {
-    .pro-image {
-        flex: 0 0 250px;
-        min-height: 250px;
-    }
-    
-    .pro-content {
-        padding: 25px;
-    }
-    
-    .pro-badge {
-        top: 15px;
-        right: 15px;
-        font-size: 0.75rem;
-        padding: 4px 12px;
-    }
-    
-    .category-title {
-        font-size: 1.5rem;
-        margin: 40px 0 20px;
-    }
-}
-
-/* Animation pour le chargement */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.pro-card {
-    animation: fadeInUp 0.6s ease-out forwards;
-}
-
-/* Délais d'animation pour chaque carte */
-.pro-card:nth-child(1) { animation-delay: 0.1s; }
-.pro-card:nth-child(2) { animation-delay: 0.2s; }
-.pro-card:nth-child(3) { animation-delay: 0.3s; }
-.pro-card:nth-child(4) { animation-delay: 0.4s; }
-/* Continuez jusqu'à 25 si nécessaire */
-
 
 /* ========== STYLES GÉNÉRAUX PORTFOLIO ========== */
 .portfolio-container {
@@ -2356,32 +1917,32 @@ footer {
 }
 
 /* ========== SECTION À PROPOS ========== */
-.about-section {
+.portfolio-about-section {
     padding: 80px 0;
     background: #f9f9ff;
     margin: 40px 0;
     border-radius: 15px;
 }
 
-.about-container {
+.portfolio-about-container {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
     align-items: center;
 }
 
-.about-text {
+.portfolio-about-text {
     flex: 2;
     min-width: 300px;
 }
 
-.about-text h2 {
+.portfolio-about-text h2 {
     font-size: 2rem;
     color: #3a05e7;
     margin-bottom: 20px;
 }
 
-.about-text p {
+.portfolio-about-text p {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 25px;
@@ -2444,7 +2005,7 @@ footer {
     transform: translateY(-3px);
 }
 
-.about-stats {
+.portfolio-about-stats {
     flex: 1;
     min-width: 250px;
     display: grid;
@@ -2452,7 +2013,7 @@ footer {
     gap: 20px;
 }
 
-.stat {
+.portfolio-stat {
     text-align: center;
     padding: 25px 15px;
     background: white;
@@ -2461,237 +2022,183 @@ footer {
     transition: transform 0.3s ease;
 }
 
-.stat:hover {
+.portfolio-stat:hover {
     transform: translateY(-5px);
 }
 
-.stat span {
+.portfolio-stat span {
     font-size: 2.5rem;
     display: block;
     margin-bottom: 10px;
 }
 
-.stat h3 {
+.portfolio-stat h3 {
     font-size: 1.8rem;
     color: #3a05e7;
     margin-bottom: 5px;
 }
 
-.stat p {
+.portfolio-stat p {
     font-size: 0.9rem;
     color: #666;
 }
 
-/* ========== SECTION PROFESSIONNELS ========== */
-.pros-section {
-    padding: 80px 20px;
-    background-color: #f9f9f9;
-    position: relative;
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.pros-section .section-header {
-    text-align: center;
-    margin-bottom: 60px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.pros-section .section-header h2 {
-    font-size: 2.8rem;
-    color: #3a05e7;
-    margin-bottom: 15px;
-    line-height: 1.3;
+@keyframes slideIn {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
-.pros-section .section-header p {
-    font-size: 1.2rem;
-    color: #666;
-    max-width: 700px;
-    margin: 0 auto;
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
 }
 
-.pros-container {
-    max-width: 1200px;
-    margin: 0 auto;
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-.category-title {
-    font-size: 1.8rem;
-    color: #333;
-    margin: 60px 0 30px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #e9c46a;
-    display: inline-block;
-    clear: both;
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-.pro-card {
-    display: flex;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    overflow: hidden;
-    margin-bottom: 40px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-}
-
-.pro-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-}
-
-.pro-image {
-    flex: 0 0 45%;
-    position: relative;
-    min-height: 350px;
-}
-
-.pro-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.pro-card:hover .pro-image img {
-    transform: scale(1.03);
-}
-
-.pro-content {
-    flex: 1;
-    padding: 40px;
-    position: relative;
-}
-
-.pro-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #e9c46a;
-    color: #264653;
-    padding: 6px 18px;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 3px 10px rgba(233, 196, 106, 0.3);
-    z-index: 3;
-}
-
-.pro-name {
-    font-size: 2rem;
-    color: #222;
-    margin-bottom: 8px;
-    font-weight: 700;
-}
-
-.pro-title {
-    font-size: 1.2rem;
-    color: #3a05e7;
-    margin-bottom: 25px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-}
-
-.pro-title:after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: #eee;
-    margin-left: 20px;
-}
-
-.pro-desc {
-    color: #555;
-    line-height: 1.7;
-    margin-bottom: 30px;
-    font-size: 1.05rem;
-}
-
-.pro-contacts {
-    margin-bottom: 35px;
-}
-
-.pro-contacts p {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-    color: #444;
-    font-size: 0.95rem;
-}
-
-.pro-contacts i {
-    margin-right: 12px;
-    color: #3a05e7;
-    width: 20px;
-    text-align: center;
-    font-size: 1.1rem;
-}
-
-.pro-actions {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.pro-btn {
-    padding: 14px 28px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    min-width: 180px;
-    text-align: center;
-}
-
-.pro-btn i {
-    margin-right: 8px;
-    font-size: 0.9rem;
-}
-
-.pro-btn.primary {
-    background: #3a05e7;
-    color: white;
-    box-shadow: 0 4px 15px rgba(58, 5, 231, 0.2);
-}
-
-.pro-btn.secondary {
-    border: 2px solid #3a05e7;
-    color: #3a05e7;
-    background: white;
-}
-
-.pro-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 7px 20px rgba(0,0,0,0.12);
-}
-
-.pro-btn.primary:hover {
-    background: #2a04b5;
-    box-shadow: 0 7px 20px rgba(42, 4, 181, 0.3);
-}
-
-.pro-btn.secondary:hover {
-    background: #f8f7ff;
-    border-color: #2a04b5;
-    color: #2a04b5;
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 1200px) {
-    .pros-container {
-        padding: 0 20px;
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .about-container {
+        flex-direction: column;
+    }
+    
+    .about-text {
+        padding-right: 0;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .about-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .stat {
+        flex: 1;
+        min-width: 200px;
+    }
+    
+    .portfolio-about-container {
+        flex-direction: column;
+    }
+    
+    .portfolio-about-text {
+        text-align: center;
+    }
+    
+    .skills-container {
+        justify-content: center;
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    #menu-list {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: #3a05e7;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+    
+    #menu-list.show {
+        right: 0;
+    }
+    
+    #menu-list ul {
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    
+    #menu-list ul li {
+        margin: 15px 0;
+    }
+    
+    .search-bar {
+        margin-top: 20px;
+    }
+    
+    .home-banner h1 {
+        font-size: 2.2em;
+    }
+    
+    .home-banner p {
+        font-size: 1.2em;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .featured-product {
+        min-width: 220px;
+    }
+    
+    .scroll-btn, .featured-prev, .featured-next {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .scroll-left {
+        left: -15px;
+    }
+    
+    .scroll-right {
+        right: -15px;
+    }
+    
+    .featured-prev {
+        left: -15px;
+    }
+    
+    .featured-next {
+        right: -15px;
+    }
+    
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .contact-info, .contact-form {
+        text-align: center;
+    }
+    
+    .contact-info p {
+        justify-content: center;
+    }
+    
     .pro-card {
         flex-direction: column;
     }
@@ -2707,29 +2214,6 @@ footer {
     .pro-title:after {
         display: none;
     }
-}
-
-@media (max-width: 768px) {
-    .pros-section {
-        padding: 60px 15px;
-    }
-    
-    .pros-section .section-header h2 {
-        font-size: 2.2rem;
-    }
-    
-    .pro-name {
-        font-size: 1.7rem;
-    }
-    
-    .pro-title {
-        font-size: 1.1rem;
-        margin-bottom: 20px;
-    }
-    
-    .pro-desc {
-        font-size: 1rem;
-    }
     
     .pro-actions {
         flex-direction: column;
@@ -2741,6 +2225,50 @@ footer {
 }
 
 @media (max-width: 576px) {
+    .home-banner h1 {
+        font-size: 1.8em;
+    }
+    
+    .home-banner p {
+        font-size: 1em;
+    }
+    
+    .cta-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    
+    .canva-block {
+        padding: 25px;
+    }
+    
+    .benefits-list li {
+        font-size: 1em;
+        padding-left: 30px;
+    }
+    
+    .pp-B5JXRGFYCRD6G {
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+    
+    .stat {
+        min-width: 100%;
+    }
+    
+    .newsletter form {
+        flex-direction: column;
+    }
+    
+    .newsletter input {
+        border-radius: 30px;
+        margin-bottom: 10px;
+    }
+    
+    .newsletter button {
+        border-radius: 30px;
+    }
+    
     .pro-image {
         flex: 0 0 250px;
         min-height: 250px;
@@ -2761,27 +2289,20 @@ footer {
         font-size: 1.5rem;
         margin: 40px 0 20px;
     }
-}
-
-/* Animation pour le chargement */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    
+    .portfolio-hero {
+        flex-direction: column;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
     }
 }
-
-.pro-card {
-    animation: fadeInUp 0.6s ease-out forwards;
-}
-
-/* Délais d'animation pour chaque carte */
-.pro-card:nth-child(1) { animation-delay: 0.1s; }
-.pro-card:nth-child(2) { animation-delay: 0.2s; }
-.pro-card:nth-child(3) { animation-delay: 0.3s; }
-.pro-card:nth-child(4) { animation-delay: 0.4s; }
-/* Continuez jusqu'à 25 si nécessaire */

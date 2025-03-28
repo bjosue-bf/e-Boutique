@@ -1,90 +1,438 @@
-<!-- portfolio-graphiste1.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de Joshua - Graphiste</title>
-    <!-- Inclure votre CSS existant -->
+    <title>Portfolio de Sophie Laurent - Directrice Artistique</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Header du site (identique à vos autres pages) -->
-    
-    <main class="portfolio-container">
-        <div class="portfolio-header">
-            <h1>Portfolio de Joshua Ouedraogo</h1>
-            <p class="subtitle">Directeur Artistique • 8 ans d'expérience</p>
-            <a href="contact.html" class="portfolio-cta">Contactez Josue</a>
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- HEADER (identique à l'index) -->
+    <header>
+        <div class="menu-container">
+            <div class="hamburger" id="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <nav id="menu-list">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="#apropos" class="nav-link">À Propos</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#processus" class="nav-link">Processus</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="portfolio-hero">
+        <div class="hero-content">
+            <h1>Sophie Laurent</h1>
+            <h2>Directrice Artistique & Brand Designer</h2>
+            <p>Je transforme les idées en identités visuelles mémorables</p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="cta-btn">Voir mon travail</a>
+                <a href="#contact" class="cta-btn secondary">Discutons de votre projet</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="assets/pros/graphiste1.jpg" alt="Sophie Laurent Directrice Artistique">
+        </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="apropos" class="about-section">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>Qui suis-je ?</h2>
+                <p>Diplômée des Arts Décoratifs de Paris avec 8 ans d'expérience en direction artistique, je me spécialise dans la création d'identités visuelles fortes pour les startups et entreprises innovantes.</p>
+                
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Expertises</h3>
+                        <ul>
+                            <li>Identité visuelle</li>
+                            <li>Direction artistique</li>
+                            <li>Brand strategy</li>
+                            <li>Design système</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Outils</h3>
+                        <ul>
+                            <li>Adobe Creative Suite</li>
+                            <li>Figma</li>
+                            <li>Blender 3D</li>
+                            <li>Procreate</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <a href="assets/cv-sophie-laurent.pdf" download class="download-cv">Télécharger mon CV</a>
+            </div>
+            <div class="about-stats">
+                <div class="stat">
+                    <span>🎨</span>
+                    <h3>80+</h3>
+                    <p>Projets réalisés</p>
+                </div>
+                <div class="stat">
+                    <span>🏆</span>
+                    <h3>12</h3>
+                    <p>Prix design</p>
+                </div>
+                <div class="stat">
+                    <span>🌍</span>
+                    <h3>15</h3>
+                    <p>Clients internationaux</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="section-header">
+            <h2>Mon Portfolio</h2>
+            <p>Une sélection de mes projets récents</p>
         </div>
 
-        <!-- Section Galerie -->
-        <section class="portfolio-gallery">
-            <div class="gallery-filter">
-                <button class="filter-btn active" data-filter="all">Tous</button>
-                <button class="filter-btn" data-filter="branding">Branding</button>
-                <button class="filter-btn" data-filter="print">Print</button>
-                <button class="filter-btn" data-filter="digital">Digital</button>
+        <div class="portfolio-filter">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="branding">Branding</button>
+            <button class="filter-btn" data-filter="print">Print</button>
+            <button class="filter-btn" data-filter="digital">Digital</button>
+            <button class="filter-btn" data-filter="packaging">Packaging</button>
+        </div>
+
+        <div class="portfolio-grid">
+            <!-- Projet 1 -->
+            <div class="portfolio-item branding" data-category="branding">
+                <img src="assets/portfolio/branding1.jpg" alt="Identité visuelle EcoFood">
+                <div class="item-overlay">
+                    <h3>EcoFood</h3>
+                    <p>Identité complète pour marque bio</p>
+                    <button class="view-btn" data-project="1">Voir le cas client</button>
+                </div>
             </div>
 
-            <div class="gallery-grid">
-                <!-- Projet 1 -->
-                <div class="gallery-item branding" data-category="branding">
-                    <img src="assets/portfolio/graphiste1/projet1.jpg" alt="Identité visuelle Marque X">
-                    <div class="item-overlay">
-                        <h3>Identité Visuelle</h3>
-                        <p>Marque de cosmétiques bio</p>
-                        <button class="view-btn" data-src="assets/portfolio/graphiste1/projet1.jpg">Voir +</button>
+            <!-- Projet 2 -->
+            <div class="portfolio-item digital" data-category="digital">
+                <video muted loop playsinline>
+                    <source src="assets/portfolio/digital1.mp4" type="video/mp4">
+                </video>
+                <div class="item-overlay">
+                    <h3>Motion Design</h3>
+                    <p>Campagne digitale pour LuxeParis</p>
+                    <button class="view-btn" data-project="2">Voir le projet</button>
+                </div>
+            </div>
+
+            <!-- Projet 3 -->
+            <div class="portfolio-item packaging" data-category="packaging">
+                <img src="assets/portfolio/packaging1.jpg" alt="Packaging Vins d'exception">
+                <div class="item-overlay">
+                    <h3>Vins d'Exception</h3>
+                    <p>Collection prestige</p>
+                    <button class="view-btn" data-project="3">Détails</button>
+                </div>
+            </div>
+
+            <!-- Projet 4 -->
+            <div class="portfolio-item print" data-category="print">
+                <img src="assets/portfolio/print1.jpg" alt="Édition magazine Culture">
+                <div class="item-overlay">
+                    <h3>Revue Culture</h3>
+                    <p>Direction artistique</p>
+                    <button class="view-btn" data-project="4">Explorer</button>
+                </div>
+            </div>
+
+            <!-- Projet 5 -->
+            <div class="portfolio-item branding digital" data-category="branding digital">
+                <img src="assets/portfolio/branding2.jpg" alt="Refonte Startup Tech">
+                <div class="item-overlay">
+                    <h3>StartUp Tech</h3>
+                    <p>Rebranding complet</p>
+                    <button class="view-btn" data-project="5">Case study</button>
+                </div>
+            </div>
+
+            <!-- Projet 6 -->
+            <div class="portfolio-item packaging" data-category="packaging">
+                <img src="assets/portfolio/packaging2.jpg" alt="Packaging Cosmetics">
+                <div class="item-overlay">
+                    <h3>PureSkin</h3>
+                    <p>Ligne cosmétique</p>
+                    <button class="view-btn" data-project="6">Voir plus</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-cta">
+            <a href="#" class="cta-btn">Voir tous les projets</a>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <h2>Mes Services</h2>
+            <p>Ce que je peux faire pour votre marque</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Identité Visuelle</h3>
+                <ul>
+                    <li>Logo & logotype</li>
+                    <li>Charte graphique</li>
+                    <li>Guidelines</li>
+                    <li>Brand book</li>
+                </ul>
+                <a href="#contact" class="service-link">En savoir plus →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <h3>Packaging Design</h3>
+                <ul>
+                    <li>Design structural</li>
+                    <li>Étiquetage</li>
+                    <li>Collection complète</li>
+                    <li>Prototypage</li>
+                </ul>
+                <a href="#contact" class="service-link">En savoir plus →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Design Digital</h3>
+                <ul>
+                    <li>UI/UX design</li>
+                    <li>Design système</li>
+                    <li>Motion design</li>
+                    <li>Réseaux sociaux</li>
+                </ul>
+                <a href="#contact" class="service-link">En savoir plus →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>Édition Print</h3>
+                <ul>
+                    <li>Magazines</li>
+                    <li>Catalogues</li>
+                    <li>Rapports annuels</li>
+                    <li>Livres d'art</li>
+                </ul>
+                <a href="#contact" class="service-link">En savoir plus →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESSUS -->
+    <section id="processus" class="process-section">
+        <div class="section-header">
+            <h2>Mon Processus Créatif</h2>
+            <p>Comment nous travaillerons ensemble</p>
+        </div>
+
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Découverte</h3>
+                <p>Brief créatif, recherche, moodboard</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Exploration</h3>
+                <p>Croquis, concepts, directions</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Développement</h3>
+                <p>Affinage, feedback, itérations</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Livraison</h3>
+                <p>Fichiers finaux, guidelines</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TÉMOIGNAGES -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <h2>Témoignages Clients</h2>
+            <p>Ce que disent mes clients</p>
+        </div>
+
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <div class="client-info">
+                    <img src="assets/clients/client1.jpg" alt="Marie Dupont">
+                    <div>
+                        <h4>Marie Dupont</h4>
+                        <p>CEO, EcoFood</p>
                     </div>
                 </div>
+                <div class="testimonial-content">
+                    <div class="rating">★★★★★</div>
+                    <p>"Sophie a capturé l'essence de notre marque avec une identité visuelle qui nous distingue clairement sur le marché. Son professionnalisme et sa créativité ont dépassé nos attentes."</p>
+                </div>
+            </div>
 
-                <!-- Projet 2 -->
-                <div class="gallery-item digital" data-category="digital">
-                    <video controls poster="assets/portfolio/graphiste1/video-thumb1.jpg">
-                        <source src="assets/portfolio/graphiste1/animation1.mp4" type="video/mp4">
-                    </video>
-                    <div class="item-overlay">
-                        <h3>Animation Web</h3>
-                        <p>Campagne publicitaire</p>
-                        <button class="view-btn" data-src="assets/portfolio/graphiste1/animation1.mp4" data-type="video">Voir +</button>
+            <div class="testimonial">
+                <div class="client-info">
+                    <img src="assets/clients/client2.jpg" alt="Jean Martin">
+                    <div>
+                        <h4>Jean Martin</h4>
+                        <p>Directeur Marketing, LuxeParis</p>
                     </div>
                 </div>
-
-                <!-- Ajouter 10+ autres projets -->
-            </div>
-        </section>
-
-        <!-- Section Tarifs -->
-        <section class="pricing-section">
-            <h2>Mes Tarifs</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Logo Basic</h3>
-                    <p class="price">À partir de 490€</p>
-                    <ul>
-                        <li>3 concepts initiaux</li>
-                        <li>2 révisions</li>
-                        <li>Fichiers vectoriels</li>
-                    </ul>
+                <div class="testimonial-content">
+                    <div class="rating">★★★★★</div>
+                    <p>"Le travail de Sophie sur notre campagne digitale a augmenté notre engagement de 40%. Elle comprend parfaitement les enjeux marketing derrière chaque création."</p>
                 </div>
-                <!-- Ajouter d'autres offres -->
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- Lightbox pour visualisation -->
-    <div class="lightbox">
-        <span class="close-btn">&times;</span>
-        <div class="lightbox-content">
-            <img id="lightbox-image" src="" alt="">
-            <video id="lightbox-video" controls style="display:none">
-                <source src="" type="video/mp4">
-            </video>
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2>Travaillons ensemble</h2>
+            <p>Discutons de votre projet</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Coordonnées</h3>
+                <p><i class="fas fa-envelope"></i> hello@sophielaurent-design.com</p>
+                <p><i class="fas fa-phone"></i> +33 6 12 34 56 78</p>
+                <p><i class="fas fa-map-marker-alt"></i> Paris, France</p>
+
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="portfolioContactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="" disabled selected>Type de projet</option>
+                            <option value="branding">Branding</option>
+                            <option value="packaging">Packaging</option>
+                            <option value="digital">Design Digital</option>
+                            <option value="print">Édition Print</option>
+                            <option value="other">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Décrivez votre projet" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (identique à l'index) -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Sophie Laurent Design</h3>
+                <p>Direction artistique & design de marque sur mesure</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#apropos">À Propos</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Mentions</h3>
+                <ul>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">CGV</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Sophie Laurent Design. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL PROJET -->
+    <div id="project-modal" class="portfolio-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2 id="modal-title">Nom du Projet</h2>
+                <p id="modal-category">Branding</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <!-- Contenu dynamique -->
+                </div>
+                <div class="modal-details">
+                    <h3>À propos du projet</h3>
+                    <p id="modal-description">Description du projet...</p>
+                    <div class="project-info">
+                        <div>
+                            <h4>Client</h4>
+                            <p id="modal-client">Nom du client</p>
+                        </div>
+                        <div>
+                            <h4>Année</h4>
+                            <p id="modal-year">2024</p>
+                        </div>
+                        <div>
+                            <h4>Services</h4>
+                            <p id="modal-services">Branding, Packaging</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Footer du site (identique à vos autres pages) -->
-    
+    <script src="script.js"></script>
     <script src="portfolio.js"></script>
 </body>
 </html>

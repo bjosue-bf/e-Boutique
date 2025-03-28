@@ -3487,3 +3487,58 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* Empêcher les débordements horizontaux */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Correction des conteneurs flexibles */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+}
+
+/* Correction des images et éléments flottants */
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Ajustement des textes trop grands */
+h1, h2, h3, h4 {
+    word-wrap: break-word;
+    text-align: center;
+}
+
+/* Boutons et éléments cliquables */
+button, .btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    text-align: center;
+}
+
+/* Ajustements supplémentaires pour écrans mobiles */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 5px;
+    }
+    .profile-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+}

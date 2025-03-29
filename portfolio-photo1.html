@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Photographe - Thomas Vernier</title>
+    <link rel="stylesheet" href="style (2).css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="menu-container">
+            <!-- Bouton hamburger -->
+            <div class="hamburger" id="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <!-- Menu de navigation -->
+            <nav id="menu-list">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Retour à la boutique</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECTION HERO PHOTOGRAPHE -->
+    <section class="portfolio-hero">
+        <div class="hero-content">
+            <h1>Thomas Vernier</h1>
+            <h2>Photographe Professionnel - 12 ans d'expérience</h2>
+            <p>Spécialisé dans la capture d'émotions authentiques et de moments uniques. Mon approche artistique met en valeur la beauté naturelle et les relations humaines.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="portfolio-cta">Prendre rendez-vous</a>
+                <a href="#portfolio" class="portfolio-cta secondary">Voir mon portfolio</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="assets/pros/photographe1.jpg" alt="Thomas Vernier - Photographe">
+        </div>
+    </section>
+
+    <!-- SECTION À PROPOS -->
+    <section class="portfolio-about-section">
+        <div class="portfolio-about-container">
+            <div class="portfolio-about-text">
+                <h2>Mon Approche Photographique</h2>
+                <p>Depuis plus d'une décennie, je me consacre à immortaliser les moments les plus précieux de la vie. Ma philosophie repose sur une approche discrète et naturelle, capturant l'authenticité des émotions plutôt que des poses forcées.</p>
+                <p>Chaque cliché raconte une histoire, révèle une connexion, préserve un instant fugace d'amour, de joie ou de tendresse. Mon objectif est de créer des images qui résistent à l'épreuve du temps et deviennent des trésors familiaux.</p>
+                
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Spécialités</h3>
+                        <ul>
+                            <li>Reportages de mariage</li>
+                            <li>Portraits corporate</li>
+                            <li>Photographie de grossesse</li>
+                            <li>Séances famille</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Équipement</h3>
+                        <ul>
+                            <li>Canon EOS R5</li>
+                            <li>Objectifs L-series</li>
+                            <li>Éclairage professionnel</li>
+                            <li>Retouche haut de gamme</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <a href="#" class="download-cv">
+                    <i class="fas fa-download"></i> Télécharger mon portfolio complet
+                </a>
+            </div>
+            
+            <div class="portfolio-about-stats">
+                <div class="portfolio-stat">
+                    <span>📷</span>
+                    <h3>250+</h3>
+                    <p>Mariages photographiés</p>
+                </div>
+                <div class="portfolio-stat">
+                    <span>🌍</span>
+                    <h3>12</h3>
+                    <p>Pays visités</p>
+                </div>
+                <div class="portfolio-stat">
+                    <span>🏆</span>
+                    <h3>8</h3>
+                    <p>Prix internationaux</p>
+                </div>
+                <div class="portfolio-stat">
+                    <span>😊</span>
+                    <h3>100%</h3>
+                    <p>Clients satisfaits</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PORTFOLIO -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="section-header">
+            <h2>Mon Portfolio</h2>
+            <p>Une sélection de mes travaux récents à travers différents styles et événements</p>
+        </div>
+        
+        <div class="portfolio-filter">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="wedding">Mariages</button>
+            <button class="filter-btn" data-filter="portrait">Portraits</button>
+            <button class="filter-btn" data-filter="corporate">Corporate</button>
+            <button class="filter-btn" data-filter="family">Famille</button>
+        </div>
+        
+        <div class="portfolio-grid">
+            <!-- Item 1 -->
+            <div class="portfolio-item" data-category="wedding">
+                <img src="assets/portfolio/mariage1.jpg" alt="Mariage à Paris">
+                <div class="item-overlay">
+                    <h3>Mariage à Paris</h3>
+                    <p>Reportage complet d'une journée de mariage dans le 16e arrondissement</p>
+                    <button class="view-btn">Voir plus</button>
+                </div>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="portfolio-item" data-category="portrait">
+                <img src="assets/portfolio/portrait1.jpg" alt="Portrait corporate">
+                <div class="item-overlay">
+                    <h3>Portrait Executive</h3>
+                    <p>Séance pour le directeur d'une entreprise du CAC40</p>
+                    <button class="view-btn">Voir plus</button>
+                </div>
+            </div>
+            
+            <!-- Item 3 -->
+            <div class="portfolio-item" data-category="family">
+                <img src="assets/portfolio/famille1.jpg" alt="Séance famille">
+                <div class="item-overlay">
+                    <h3>Famille en Provence</h3>
+                    <p>Séance extérieure au coucher du soleil</p>
+                    <button class="view-btn">Voir plus</button>
+                </div>
+            </div>
+            
+            <!-- Item 4 -->
+            <div class="portfolio-item" data-category="wedding">
+                <img src="assets/portfolio/mariage2.jpg" alt="Mariage à la campagne">
+                <div class="item-overlay">
+                    <h3>Mariage Champêtre</h3>
+                    <p>Célébration intime dans un domaine viticole</p>
+                    <button class="view-btn">Voir plus</button>
+                </div>
+            </div>
+            
+            <!-- Item 5 -->
+            <div class="portfolio-item" data-category="corporate">
+                <img src="assets/portfolio/corporate1.jpg" alt="Événement d'entreprise">
+                <div class="item-overlay">
+                    <h3>Lancement de Produit</h3>
+                    <p>Couverture médiatique d'un événement corporate</p>
+                    <button class="view-btn">Voir plus</button>
+                </div>
+            </div>
+            
+            <!-- Item 6 -->
+            <div class="portfolio-item" data-category="portrait">
+                <img src="assets/portfolio/portrait2.jpg" alt="Portrait artistique">
+                <div class="item-overlay">
+                    <h3>Portrait Artistique</h3>
+                    <p>Série en noir et blanc pour une exposition</p>
+                    <button class="view-btn">Voir plus</button>
+                </div>
+            </div>
+        </div>
+        
+        <a href="#" class="portfolio-cta">
+            <i class="fas fa-images"></i> Voir tout le portfolio
+        </a>
+    </section>
+
+    <!-- SECTION SERVICES -->
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <h2>Mes Services</h2>
+            <p>Des prestations sur mesure adaptées à vos besoins et à votre personnalité</p>
+        </div>
+        
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-ring"></i>
+                </div>
+                <h3>Photographie de Mariage</h3>
+                <ul>
+                    <li>Reportage complet de 8 à 12 heures</li>
+                    <li>Album photo luxe inclus</li>
+                    <li>Pré-wedding et shooting de robe</li>
+                    <li>Retouches professionnelles</li>
+                </ul>
+                <a href="#contact" class="service-link">
+                    Demander un devis <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>Portraits Corporate</h3>
+                <ul>
+                    <li>Séance en studio ou sur site</li>
+                    <li>Direction artistique professionnelle</li>
+                    <li>Photos pour LinkedIn et site web</li>
+                    <li>Retouches légères et naturelles</li>
+                </ul>
+                <a href="#contact" class="service-link">
+                    Demander un devis <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Séances Famille</h3>
+                <ul>
+                    <li>Séance en extérieur ou à domicile</li>
+                    <li>Guidance naturelle pour les poses</li>
+                    <li>Option livre photo premium</li>
+                    <li>Photos numériques haute résolution</li>
+                </ul>
+                <a href="#contact" class="service-link">
+                    Demander un devis <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PROCESSUS -->
+    <section class="process-section">
+        <div class="section-header">
+            <h2>Mon Processus Créatif</h2>
+            <p>Comment se déroule une collaboration avec moi, de A à Z</p>
+        </div>
+        
+        <div class="process-steps">
+            <!-- Étape 1 -->
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Consultation</h3>
+                <p>Nous échangeons sur vos attentes, votre style et les détails pratiques pour créer une expérience sur mesure.</p>
+            </div>
+            
+            <!-- Étape 2 -->
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Préparation</h3>
+                <p>Je vous guide sur les tenues, les accessoires et les poses pour des résultats optimaux.</p>
+            </div>
+            
+            <!-- Étape 3 -->
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Séance Photo</h3>
+                <p>Le jour J, je crée une atmosphère détendue pour capturer des moments authentiques et naturels.</p>
+            </div>
+            
+            <!-- Étape 4 -->
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Livraison</h3>
+                <p>Vous recevez vos photos retouchées avec soin dans un délai de 2 à 4 semaines selon le projet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION TÉMOIGNAGES -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <h2>Témoignages Clients</h2>
+            <p>Ce que disent les couples et clients que j'ai eu le plaisir de photographier</p>
+        </div>
+        
+        <div class="testimonials-container">
+            <!-- Témoignage 1 -->
+            <div class="testimonial">
+                <div class="client-info">
+                    <img src="assets/clients/client1.jpg" alt="Marie et Jean">
+                    <div>
+                        <h4>Marie & Jean</h4>
+                        <p>Mariage à Bordeaux</p>
+                    </div>
+                </div>
+                <div class="rating">★★★★★</div>
+                <div class="testimonial-content">
+                    <p>"Thomas a su capter chaque émotion de notre journée avec une sensibilité incroyable. Ses photos racontent notre histoire mieux que nous ne pourrions le faire avec des mots. Un vrai talent !"</p>
+                </div>
+            </div>
+            
+            <!-- Témoignage 2 -->
+            <div class="testimonial">
+                <div class="client-info">
+                    <img src="assets/clients/client2.jpg" alt="Sophie Martin">
+                    <div>
+                        <h4>Sophie Martin</h4>
+                        <p>Portrait Corporate</p>
+                    </div>
+                </div>
+                <div class="rating">★★★★★</div>
+                <div class="testimonial-content">
+                    <p>"Jamais je n'ai eu des photos professionnelles aussi naturelles. Thomas a un don pour mettre à l'aise et révéler la personnalité de ses sujets. Mes photos de profil ont généré 3x plus de vues sur LinkedIn !"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CONTACT -->
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2>Contactez-moi</h2>
+            <p>Discutons de votre projet et créons ensemble des souvenirs inoubliables</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Coordonnées</h3>
+                <p><i class="fas fa-envelope"></i> thomas.photo@example.com</p>
+                <p><i class="fas fa-phone"></i> +33 6 12 34 56 78</p>
+                <p><i class="fas fa-map-marker-alt"></i> Basé à Paris - Disponible dans toute la France et à l'international</p>
+                <p><i class="fas fa-clock"></i> Lundi au Vendredi : 9h-19h</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Formulaire de contact</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="" disabled selected>Type de projet</option>
+                            <option value="wedding">Mariage</option>
+                            <option value="portrait">Portrait</option>
+                            <option value="corporate">Corporate</option>
+                            <option value="family">Famille</option>
+                            <option value="other">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Date prévue (si connue)">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Décrivez votre projet" required></textarea>
+                    </div>
+                    <button type="submit">Envoyer la demande</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Thomas Vernier</h3>
+                <p>Photographe professionnel spécialisé dans les mariages, portraits et événements. Capturer l'essence de vos moments précieux avec art et sensibilité.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions générales</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Thomas Vernier Photographie. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL PORTFOLIO -->
+    <div class="portfolio-modal">
+        <div class="modal-content">
+            <div class="close-modal">&times;</div>
+            <div class="modal-header">
+                <h2>Titre du Projet</h2>
+                <p>Brève description du projet et du contexte</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <img src="assets/portfolio/mariage1.jpg" alt="Exemple de projet">
+                    <img src="assets/portfolio/mariage2.jpg" alt="Exemple de projet">
+                </div>
+                <div class="modal-details">
+                    <h3>Détails du Projet</h3>
+                    <p>Description complète du projet, des défis rencontrés et des solutions créatives apportées. Explication de l'approche artistique et technique.</p>
+                    
+                    <div class="project-info">
+                        <div>
+                            <h4>Client</h4>
+                            <p>Nom du client</p>
+                        </div>
+                        <div>
+                            <h4>Date</h4>
+                            <p>Mois/Année</p>
+                        </div>
+                        <div>
+                            <h4>Lieu</h4>
+                            <p>Ville, Pays</p>
+                        </div>
+                        <div>
+                            <h4>Catégorie</h4>
+                            <p>Mariage/Portrait/etc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BACK TO TOP BUTTON -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

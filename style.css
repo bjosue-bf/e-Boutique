@@ -3073,3 +3073,60 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* AJOUTEZ CES RÈGLES À LA FIN DE VOTRE FICHIER CSS */
+
+/* Correction globale du débordement horizontal */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Correction spécifique pour la section des professionnels */
+.pro-card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Correction des médias queries pour mobile */
+@media (max-width: 768px) {
+  body {
+    min-width: 100vw;
+  }
+  
+  .pros-section,
+  .pros-container,
+  .pro-card {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .pro-image {
+    width: 100%;
+    min-height: 250px;
+  }
+  
+  .pro-content {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+/* Correction supplémentaire pour les petits écrans */
+@media (max-width: 480px) {
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  .pro-name,
+  .pro-title,
+  .pro-desc,
+  .pro-contacts p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}

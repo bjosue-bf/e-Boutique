@@ -459,7 +459,73 @@
     <div class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </div>
+    
+<style>
+    /* AJOUTS SPÉCIFIQUES POUR LA JUSTIFICATION ET AMÉLIORATIONS */
+    .portfolio-about-text p,
+    .portfolio-stat p,
+    .testimonial-content p,
+    .process-step p,
+    .service-card ul,
+    .footer-section p,
+    .modal-details p {
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+    }
 
+    /* Amélioration de la lisibilité */
+    .portfolio-about-text p,
+    .testimonial-content p,
+    .modal-details p {
+        line-height: 1.8;
+        margin-bottom: 1.5em;
+    }
+
+    /* Correction des espacements pour les listes */
+    .skill-category ul,
+    .service-card ul {
+        padding-left: 1.5em;
+    }
+
+    .skill-category li,
+    .service-card li {
+        margin-bottom: 0.8em;
+        line-height: 1.6;
+    }
+
+    /* Ajustements responsive */
+    @media (max-width: 768px) {
+        .portfolio-about-text p,
+        .testimonial-content p,
+        .process-step p {
+            text-align: left;
+            hyphens: none;
+        }
+        
+        .skill-category,
+        .service-card {
+            min-width: 100%;
+        }
+    }
+
+    /* Correction du débordement horizontal */
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    /* Amélioration des conteneurs texte */
+    .hero-content p,
+    .section-header p,
+    .contact-info p {
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+</style>
     <script src="script.js"></script>
 </body>
 </html>

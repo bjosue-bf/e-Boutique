@@ -24,6 +24,8 @@ body {
   color: #333;
   line-height: 1.6;
   overflow-x: hidden;
+  position: relative;
+  width: 100%;
 }
 
 /* ========== LOADER ========== */
@@ -1625,6 +1627,7 @@ footer {
   padding: 80px 20px;
   background-color: #f9f9f9;
   position: relative;
+  overflow: hidden;
 }
 
 .pros-section .section-header {
@@ -1652,6 +1655,7 @@ footer {
 .pros-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .pro-card {
@@ -1713,6 +1717,7 @@ footer {
   color: #222;
   margin-bottom: 8px;
   font-weight: 700;
+  text-align: center;
 }
 
 .pro-title {
@@ -1721,7 +1726,9 @@ footer {
   margin-bottom: 25px;
   font-weight: 600;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .pro-title:after {
@@ -1729,7 +1736,8 @@ footer {
   flex: 1;
   height: 1px;
   background: #eee;
-  margin-left: 20px;
+  margin-top: 10px;
+  width: 80%;
 }
 
 .pro-desc {
@@ -1763,6 +1771,7 @@ footer {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .pro-btn {
@@ -1810,6 +1819,88 @@ footer {
   background: #f8f7ff;
   border-color: #2a04b5;
   color: #2a04b5;
+}
+
+/* Responsive styles for professionals section */
+@media (max-width: 992px) {
+  .pro-card {
+    flex-direction: column;
+  }
+  
+  .pro-image {
+    flex: none;
+    min-height: 300px;
+  }
+  
+  .pro-content {
+    padding: 30px;
+  }
+  
+  .pro-name {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pros-section {
+    padding: 60px 15px;
+  }
+  
+  .pros-section .section-header h2 {
+    font-size: 2.2rem;
+  }
+  
+  .pro-card {
+    margin-bottom: 30px;
+  }
+  
+  .pro-image {
+    min-height: 250px;
+  }
+  
+  .pro-content {
+    padding: 25px;
+  }
+  
+  .pro-name {
+    font-size: 1.6rem;
+  }
+  
+  .pro-title {
+    font-size: 1.1rem;
+  }
+  
+  .pro-btn {
+    min-width: 150px;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .pros-section .section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .pros-section .section-header p {
+    font-size: 1rem;
+  }
+  
+  .pro-name {
+    font-size: 1.4rem;
+  }
+  
+  .pro-desc {
+    font-size: 1rem;
+  }
+  
+  .pro-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pro-btn {
+    width: 100%;
+  }
 }
 
 /* ========== STYLES GÉNÉRAUX PORTFOLIO ========== */
